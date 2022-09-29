@@ -1,0 +1,202 @@
+.playlist {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  //min-width: 370px;
+  //max-width: 480px;
+  width: 484px;
+
+  background-size: cover;
+  background-color: #1B1F34;
+  position: fixed;
+  right: 90px;
+  z-index: 10000;
+  bottom: $playerHeight + 15px;
+  min-height: $playListHeight;
+  border-radius: 5px;
+
+
+  .tracks-wrapper {
+    max-height: $playListHeight + $playListHeaderHeight;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding: 20px;
+
+    .track {
+      height: 35px;
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+
+      .controls-wrapper {
+        width: 35px;
+        position: relative;
+        margin-right: 20px;
+
+        &:hover {
+          .track_play, .track_pause {
+            display: block;
+          }
+        }
+
+        button {
+          position: absolute;
+          cursor: pointer;
+          width: 30px;
+          height: 30px;
+          display: none;
+          border: none;
+          transition: 0.5s;
+          background-color: $blue;
+          background-position: 10px center;
+          background-size: 12px;
+          border-radius: 50%;
+          top: 5px;
+          right: 5px;
+
+          &.track_play {
+            @include playerPlay($White);
+          }
+          &.track_pause {
+            @include playerPause($White);
+          }
+        }
+      }
+    }
+
+    .title {
+      //width: 205px;
+      color: #f1f1f1;
+      font-size: 16px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      margin-bottom: 0;
+      font-weight: 400;
+    }
+  }
+
+  .time_end {
+    color: white;
+  }
+
+  .empty-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    min-height: $playListHeight - $playListHeaderHeight;
+  }
+
+  .expand {
+    color: $blue;
+    display: flex;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin-left: 20px;
+    position: relative;
+
+    i {
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    .actions-list {
+      width: 137px;
+      background-color: #3a3843;
+      position: absolute;
+      right: 10px;
+      bottom: -65px;
+      border-radius: 5px;
+      z-index: 1;
+
+      .actions-list-item {
+        height: 32px;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid #4A4A4A;
+        }
+
+        &.danger {
+          color: #E94E4E;
+        }
+      }
+    }
+  }
+
+
+  .playlist_footer {
+    height: $playListHeaderHeight;
+    background-color: #2E3548;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 20px;
+    align-items: center;
+    z-index: 1;
+
+    .left-conrols {
+      display: flex;
+      align-items: center;
+      .switch {
+        margin-left: 15px;
+        .check {
+          width: 55px;
+          height: 30px;
+          padding: 0;
+          input {
+            & + span {
+              background-color: red!important;
+            }
+            &:checked {
+              & + span {
+                background-color: red;
+              }
+            }
+          }
+          &:before {
+            width: 28px;
+            height: 28px;
+            box-shadow: none;
+          }
+        }
+      }
+    }
+    .right-controls {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .clear {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 56px;
+        height: 30px;
+        background: #1B1F34;
+        border-radius: 36px;
+        font-size: 14px;
+        color: #f1f1f1;
+        margin-right: 10px;
+      }
+      //button {
+      //  width: 56px;
+      //  height: 25px;
+      //  background: #C4C4C4;
+      //  border-radius: 5px;
+      //  margin-right: 10px;
+      //}
+      .hide_playlist {
+        cursor: pointer;
+        font-size: 45px;
+      }
+
+    }
+  }
+
+}

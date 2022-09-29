@@ -1,0 +1,136 @@
+.keys_container {
+  justify-content: center;
+}
+
+.wrap_keys {
+  width: 100%;
+  max-width: 1075px;
+  overflow: hidden;
+
+  .a_section, .b_section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 125px;
+
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      width: 90px;
+      height: 100%;
+      border-right: 2px solid #031020;
+      cursor: pointer;
+      transition: 0.29s;
+      @include unSelect;
+      position: relative;
+      > span {
+        color: #fff;
+        position: absolute;
+        top: 1px;
+        right: 1px;
+      }
+      &:hover {
+        background-color: rgba(#2E3548, .5);
+        ._mark, ._name {
+          color: #fff;
+        }
+      }
+      &.active {
+        background-color: rgba(#2E3548, .5);
+        ._mark, ._name {
+          color: #fff;
+        }
+      }
+    }
+
+    ._mark {
+      font-size: 41px;
+      color: #000;
+      font-weight: 500;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      transition: 0.29s;
+    }
+
+    ._name {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 600;
+      color: #031020;
+      text-transform: uppercase;
+      text-align: center;
+      height: 45px;
+      transition: 0.29s;
+    }
+  }
+
+  .b_section {
+    background: linear-gradient(90deg, rgba(0, 255, 226, 0.7) 0%, rgba(181, 255, 135, 0.7) 18.75%, rgba(255, 219, 99, 0.7) 37.5%, rgba(255, 134, 132, 0.7) 57.81%, rgba(197, 133, 255, 0.7) 78.12%, rgba(133, 225, 255, 0.7) 95.43%);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+
+  .a_section {
+    background: linear-gradient(90deg, rgba(148, 255, 241, 0.6) 0%, rgba(191, 255, 153, 0.6) 18.75%, rgba(250, 236, 188, 0.6) 37.4%, rgba(255, 153, 152, 0.6) 57.81%, rgba(205, 148, 255, 0.6) 78.12%, rgba(188, 238, 255, 0.6) 95.43%);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    overflow: hidden;
+    > div {
+      ._mark {
+        font-weight: 400;
+      }
+    }
+  }
+  &.filter_keys {
+    max-width: 100%;
+    position: relative;
+    margin-top: -60px;
+    .a_section, .b_section {
+      height: 58px;
+      > div {
+        border: none;
+        width: 108px;
+        padding: 0 11px;
+        justify-content: flex-start;
+        > span {
+          display: none;
+        }
+        &:hover {
+          background-color: rgba(#282C47, .5);
+        }
+        &.active {
+          background-color: rgba(#282C47, .5);
+        }
+        ._mark {
+          font-size: 17px;
+          line-height: 1.5;
+          height: 27px;
+        }
+        ._name {
+          font-size: 13px;
+          font-weight: 500;
+          color: #000;
+          height: 22px;
+          line-height: 1;
+        }
+      }
+    }
+    .b_section {
+      margin-bottom: 3.72px;
+    }
+    .a_section {
+      > div {
+        ._mark {
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}

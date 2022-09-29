@@ -1,0 +1,446 @@
+$themes: (
+        dark: (
+          // nav
+                navBackground: #4a4a4a,
+                navItemColor: #fff,
+                navItemColorHover: #20C4F5,
+                navItemBackgroundActive: #333333,
+          // section
+                sectionBackground: #1B1F34,
+                sectionAboutTitleColor: #fff,
+                sectionAboutDescriptColor: #dcdcdc,
+          // faq
+                faqLinkColor: #20C4F5,
+          // accordion question
+                questionBackground: #031020,
+                questionColor: #fff,
+                answerColor: #fff,
+          // changelog
+                changelogDateBackground: #28363f,
+                changelogDateShadow: 0px 4px 4px rgba(0, 0, 0, 0.25),
+                changelogDateColor: #7d7d7d,
+                changelogActiveDateColor: #20C4F5,
+                changelogExplanationBgc: #282d2e,
+                changelogExplanationColor: #fff,
+          // changelog statuses
+                plannedBgc: #cba107,
+                plannedColor: #000,
+                cancelledBgc: #282d2e,
+                cancelledColor: #fff,
+                consideredBgc: #282d2e,
+                consideredColor: #fff,
+                completedBgc: #1fa4cb,
+                completedColor: #000,
+                inProgressBgc: #7ea430,
+                inProgressColor: #000,
+        ),
+        light: (
+          // nav
+                navBackground: #fff,
+                navItemColor: #fff,
+                navItemColorHover: #4a4a4a,
+                navItemBackgroundActive: #333333,
+          // section
+                sectionBackground: #4a4a4a,
+                sectionAboutTitleColor: #fff,
+                sectionAboutDescriptColor: #fff,
+          // faq
+                faqLinkColor: #20C4F5,
+          // accordion question
+                questionBackground: #28363f,
+                questionColor: #fff,
+                answerColor: #fff,
+          // changelog
+                changelogDateBackground: #333,
+                changelogDateShadow: none,
+                changelogDateColor: #7D7D7D,
+                changelogActiveDateColor: #20C4F5,
+                changelogExplanationBgc: #282d2e,
+                changelogExplanationColor: #fff,
+          // changelog statuses
+                plannedBgc: #cba107,
+                plannedColor: #000,
+                cancelledBgc: #282d2e,
+                cancelledColor: #fff,
+                consideredBgc: #282d2e,
+                consideredColor: #fff,
+                completedBgc: #1fa4cb,
+                completedColor: #000,
+                inProgressBgc: #7ea430,
+                inProgressColor: #000
+        )
+);
+
+
+section {
+  margin-bottom: 30px;
+  border-radius: 5px;
+  @include themify($themes) {
+    background-color: themed(sectionBackground);
+  }
+
+  > h4 { // temp
+    color: #dcdcdc;
+    font-size: 24px;
+    font-weight: 600;
+    padding: 120px 30px;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+    border: none;
+    margin: 0;
+
+    > button {
+      font-size: 16px;
+      margin-left: 10px;
+      margin-bottom: -2px;
+      background-color: transparent;
+      border: none;
+      @include themify($themes) {
+        color: themed(faqLinkColor);
+      }
+    }
+
+    @include themify($themes) {
+      color: themed(sectionAboutTitleColor);
+    }
+  }
+
+  .description {
+    font-size: 18px;
+    line-height: 21px;
+    font-weight: 300;
+    word-break: break-word;
+    @include themify($themes) {
+      color: themed(sectionAboutDescriptColor);
+    }
+
+    p {
+      padding-bottom: 10px;
+    }
+
+    a {
+      @include themify($themes) {
+        color: themed(faqLinkColor);
+      }
+    }
+  }
+
+  &.about {
+    padding: 10px 0 20px 0;
+    background-color: transparent;
+
+    .title {
+      margin-bottom: 20px;
+    }
+  }
+
+  &.faq {
+    padding-bottom: 45px;
+    position: relative;
+
+    .no_faqs {
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #dcdcdc;
+      font-size: 18px;
+    }
+
+    &.is_loader {
+      position: relative;
+
+      &:after {
+        @include pseudo();
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .loader {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+    }
+
+    &.user_content {
+      background-color: #10182B;
+        .title {
+            padding: 30px 0;
+            margin: 0;
+
+            a {
+              font-size: 16px;
+              margin-left: 10px;
+              margin-bottom: -2px;
+              background-color: transparent;
+              border: none;
+              color: #20C4F5;
+            }
+        }
+      .answer {
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+    }
+
+    &.admin-content {
+      background-color: #2D2339;
+
+      .question {
+        background: #402E48;
+      }
+    }
+  }
+}
+
+.create_faq {
+  position: relative;
+  border-radius: 5px;
+  margin-bottom: 60px;
+
+  .title {
+    display: flex;
+    align-items: center;
+    padding: 20px 0 !important;
+    color: #fff;
+    font-size: 20px;
+    margin: 0;
+  }
+
+  input, textarea {
+    border-radius: 5px;
+    background-color: #130320;
+    max-width: 80%;
+    width: 70%;
+    color: #7481A6;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    outline: none;
+    @include max865 {
+      width: 100%;
+      max-width: 100%;
+    }
+
+    &.invalid {
+      border-color: #E94E4E;
+    }
+  }
+
+  input {
+    height: 50px;
+    padding: 0 20px;
+  }
+
+  textarea {
+    padding: 15px 20px;
+  }
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #402E48;
+    border-radius: 22px;
+    width: 120px;
+    height: 45px;
+    border: none;
+    font-size: 17px;
+    color: #fff;
+
+    &:disabled {
+      background-color: rgba(#7d7d7d, .2);
+    }
+  }
+
+  .loader {
+    position: absolute;
+  }
+}
+
+// faq accordion
+.questions {
+  margin-bottom: 30px;
+
+  .item_question {
+    margin-bottom: 10px;
+    transition: 0.5s;
+    position: relative;
+
+    .question {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      height: 50px;
+      border-radius: 5px;
+      padding: 10px 20px 10px 75px;
+      cursor: pointer;
+      font-size: 18px;
+      position: relative;
+      background-color: #2E3548;
+      color: #fff;
+      user-select: none;
+      @include max610 {
+        height: auto;
+      }
+
+      .handle { // draggable
+        position: absolute;
+        left: 10px;
+        top: 0;
+        width: 10px;
+        height: 100%;
+        @include drag();
+        background-color: transparent;
+        background-position: center;
+        border: none;
+        z-index: 1;
+        flex-shrink: 0;
+      }
+
+      .visible { // button open/close
+        width: 30px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 30px;
+        @include arrowBack('20c4f5');
+        background-position: center center;
+        transform: rotate(-180deg);
+        flex-shrink: 0;
+
+        &.show {
+          transform: rotate(-90deg);
+        }
+      }
+
+      > input {
+        width: 100%;
+        height: 100%;
+        background-color: transparent;
+        border: none;
+        font-size: 18px;
+        @include themify($themes) {
+          color: themed(questionColor);
+        }
+        //@include max610 {
+        //  width: 50%;
+        //}
+      }
+
+      .check {
+        @include check('ffffff');
+        background-size: 20px;
+        border: none;
+        background-color: transparent;
+        width: 30px;
+        height: 18px;
+        margin-left: 25px;
+        flex-shrink: 0;
+
+        &:hover {
+          @include check('20c4f5');
+        }
+      }
+
+      // delete button
+      .faq_delete {
+        display: flex;
+        flex-shrink: 0;
+        > span {
+          color: #fff;
+        }
+
+        &:hover {
+          > span {
+            color: #E94E4E;
+          }
+        }
+      }
+
+      .saved {
+        font-weight: 500;
+        font-size: 18px;
+        color: #fff;
+      }
+    }
+
+    // textarea
+    .answer {
+      display: flex;
+      width: 100%;
+      padding: 20px 50px;
+      font-size: 18px;
+      overflow: hidden;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      line-height: 170%;
+      height: 0;
+      font-weight: 300;
+      @include themify($themes) {
+        color: themed(answerColor);
+      }
+
+      &.show {
+        height: 100%;
+        transition: opacity 0.5s ease;
+        padding: 20px 50px;
+        white-space: pre-line;
+      }
+    }
+
+    &.active {
+      .question {
+        filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+      }
+    }
+  }
+}
+
+
+// temp styles
+.p-feature-suggestions, .p-bug-reports, .p-changelog,
+.p-suggestions, .p-reports{
+  .coming_soon {
+    width: 100%;
+    height: 250px;
+    background: #1C2239;
+    border-radius: 5px;
+    padding: 16px;
+    > h3 {
+      font-size: 24px;
+      line-height: 28px;
+      color: #5F6986;
+      margin-bottom: 8px;
+    }
+    .process {
+      > div {
+        font-size: 16px;
+        .name {
+          color: #DCDCDC;
+          margin-right: 7px;
+        }
+        &.pending {
+          .val {
+            color: #FFCF23;
+          }
+        }
+        &.active {
+          .val {
+            color: #20F54F;
+          }
+        }
+      }
+    }
+  }
+}

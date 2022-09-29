@@ -1,0 +1,153 @@
+.item_grid_album {
+  &.small {
+    .album_cover {
+      height: 188px;
+      @include max767 {
+        height: auto;
+      }
+    }
+  }
+  .album_cover {
+    //height: 232px;
+    min-height: 200px;
+    display: flex;
+    margin-bottom: 8px;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    @include max767 {
+      height: auto;
+    }
+    .active_overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transition: 0.2s;
+      cursor: pointer;
+      z-index: 1;
+
+      .like {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        @include likeEmpty('5F6986', '0.8', 'dcdcdc');
+        &:hover {
+          @include like('464C59', 'EE7A7A', '1');
+        }
+        &.active {
+          @include like('1A1F34', 'EE3B3B', '0.8');
+          &:hover {
+            @include like('181E33', 'EE7A7A', '0.8');
+          }
+        }
+      }
+      .play_album {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        opacity: 0;
+        @include max767 {
+          display: none;
+        }
+      }
+      .pause_album {
+        position: absolute;
+        left: 14px;
+        bottom: 14px;
+        @include max767 {
+          display: none;
+        }
+      }
+      &.active_like {
+        .like {
+          opacity: 1;
+          &.active {
+            opacity: 1;
+          }
+        }
+      }
+      &:hover {
+        .like {
+          opacity: 1;
+          @include max767 {
+            opacity: 0;
+          }
+        }
+        .play_album {
+          opacity: 1;
+        }
+      }
+
+    }
+    .album_cover_image {
+      width: 100%;
+      > img {
+        width: 100%;
+      }
+    }
+
+    &.no_img {
+      background-color: rgba(#1A1F34, .56);
+    }
+
+    &:hover {
+      .active_overlay {
+        background-color: rgba(#1A1F34, .6);
+        @include max767 {
+          background-color: transparent;
+        }
+      }
+    }
+  }
+
+  .album_name {
+    display: flex;
+    color: #fff;
+    font-weight: 500;
+    line-height: 150%;
+    margin-bottom: 2px;
+    cursor: pointer;
+  }
+
+  .album_artist {
+    font-size: 15px;
+    font-weight: 500;
+    color: #7481A6;
+    cursor: pointer;
+
+    > span {
+      font-weight: 400;
+      color: #fff;
+    }
+
+    &:hover {
+      color: #20C4F5;
+    }
+  }
+
+  &.playing_album {
+    .active_overlay {
+      opacity: 1;
+    }
+  }
+}
+
+// gray out listened album in discovery mode
+.albums_list.discovery_mode .item_grid_album.is_listened {
+  .album_cover .active_overlay {
+    background-color: rgba(#1A1F34, .6);
+  }
+}
+.p_albums_list.discovery .item_grid_album.is_listened {
+  .album_cover .active_overlay {
+    background-color: rgba(#1A1F34, .6);
+  }
+}

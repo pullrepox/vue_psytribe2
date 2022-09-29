@@ -1,0 +1,141 @@
+$themes: (
+        dark: (
+                footerBackground: #1c2325,
+                footerlinkColor: #fff,
+                psytranceColor: #888,
+                bodyBackgroundColor: #0D1618,
+        ),
+        light: (
+                footerBackground: #fff,
+                footerlinkColor: #000,
+                psytranceColor: #888,
+                bodyBackgroundColor: #F1F1F1,
+        )
+);
+footer {
+  width: 100%;
+  height: 173px;
+  z-index: 101;
+  background-color: #000;
+  background-size: cover;
+  padding-bottom: 61px;
+  @include max999 {
+    height: 180px;
+  }
+  @include max767 {
+    height: 450px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    @include max999 {
+      flex-direction: column;
+    }
+  }
+
+  .left_box {
+    .footer_logo {
+      display: flex;
+      align-items: flex-end;
+      width: 188px;
+      height: 70px;
+      background-image: url(#{$imagePath}Logo-footer.svg);
+      background-repeat: no-repeat;
+      background-position: left 25px;
+      @include max999 {
+        width: 100%;
+        background-position: center 35px;
+        justify-content: center;
+      }
+    }
+
+    > span {
+      display: flex;
+      font-weight: 300;
+      font-size: 12px;
+      color: #5F6986;
+      padding-bottom: 0;
+      padding-left: 45px;
+      @include max999 {
+        padding-bottom: 25px;
+        padding-left: 0;
+      }
+      @include max767 {
+        margin-bottom: 35px;
+        justify-content: center;
+        margin-top: 5px;
+      }
+    }
+  }
+  .right_box {
+    display: flex;
+    align-items: center;
+    @include max999 {
+      width: 100%;
+      justify-content: center;
+      padding-bottom: 35px;
+    }
+    @include max767 {
+      //height: 80%;
+      flex-direction: column;
+    }
+
+    .links {
+      display: flex;
+      align-items: center;
+      width: auto;
+      margin-left: 24px;
+      @include max999 {
+        margin-left: 0;
+      }
+      @include max767 {
+        flex-direction: column;
+        justify-content: center;
+      }
+
+      > a {
+        color: #5F6986;
+        margin-right: 30px;
+        font-size: 16px;
+        @include max999 {
+          margin-right: 24px;
+        }
+        @include max767 {
+          display: flex;
+          line-height: 100%;
+          margin-right: 0;
+          margin-bottom: 24px;
+        }
+      }
+    }
+
+    .social_block {
+      display: flex;
+      align-items: center;
+
+      > a {
+        display: flex;
+        width: 25px;
+        height: 20px;
+        @include max767 {
+          background-position: center;
+        }
+
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+        &.facebook {
+          @include iconFacebook();
+        }
+
+        &.instagram {
+          @include iconInstagram();
+        }
+      }
+    }
+  }
+}
+
+
+

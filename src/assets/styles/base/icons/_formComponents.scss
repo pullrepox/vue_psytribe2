@@ -1,0 +1,59 @@
+@mixin verticalArrow($fill) {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='10' height='5' viewBox='0 0 10 5' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M5.3902 4.86424L9.84025 1.07685C9.94325 0.989247 10 0.872312 10 0.747627C10 0.622941 9.94325 0.506006 9.84025 0.418408L9.51261 0.139492C9.29911 -0.0419999 8.95212 -0.0419999 8.73895 0.139492L5.00207 3.31986L1.26105 0.135963C1.15804 0.0483653 1.02072 -3.53247e-07 0.874302 -3.59007e-07C0.727717 -3.64774e-07 0.590401 0.0483653 0.487312 0.135963L0.159754 0.414879C0.0567474 0.502546 -3.00838e-08 0.619412 -3.61395e-08 0.744097C-4.21952e-08 0.868783 0.0567474 0.985718 0.159754 1.07332L4.61386 4.86424C4.7172 4.95205 4.85516 5.00028 5.00183 5C5.14906 5.00028 5.28695 4.95205 5.3902 4.86424Z' fill='%23#{$fill}'/%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+}
+
+// filter icons
+@mixin additionalBtn($fill) {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='20' viewBox='0 0 24 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M4.28878 0H2.57327V8.33333H4.28878V0ZM14.7534 8.33333H9.26376L8.57756 7.41667V5.75L9.26376 5H14.7534L15.4396 5.83333V7.5L14.7534 8.33333ZM6.17584 13.3333H0.686204L0 12.5V10.8333L0.686204 10H6.17584L6.86204 10.8333V12.5L6.17584 13.3333ZM12.8663 0H11.1508V3.33333H12.8663V0ZM11.1508 10H12.8663V20H11.1508V10ZM4.28878 15H2.57327V20H4.28878V15ZM17.8413 15H23.3138L24 14.1667V12.5833L23.3138 11.75H17.8413L17.1551 12.5833V14.1667L17.8413 15ZM21.4439 0H19.7284V10H21.4439V0ZM19.7284 16.6667H21.4439V20H19.7284V16.6667Z' fill='%23#{$fill}'/%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+}
+@mixin clearBtn($fill) {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M11.9965 24C10.4206 24.0016 8.85995 23.6923 7.40376 23.0898C5.94757 22.4873 4.62446 21.6035 3.51017 20.489C2.39588 19.3744 1.51229 18.0509 0.909969 16.5944C0.307649 15.1378 -0.0015722 13.5768 6.01081e-06 12.0005V11.7605C0.0480019 9.40794 0.786128 7.12131 2.12265 5.18485C3.45917 3.2484 5.33514 1.7475 7.51743 0.86869C9.69971 -0.0101172 12.0921 -0.22808 14.3972 0.241891C16.7023 0.711862 18.8185 1.84904 20.4828 3.5121C22.1619 5.19028 23.3056 7.32901 23.7691 9.65761C24.2326 11.9862 23.995 14.4 23.0864 16.5935C22.1779 18.787 20.6392 20.6615 18.6651 21.98C16.6909 23.2984 14.3702 24.0014 11.9965 24ZM11.9965 13.6924L15.1036 16.8003L16.7951 15.1084L13.688 12.0005L16.7951 8.89266L15.1036 7.20074L11.9965 10.3086L8.88939 7.20074L7.19789 8.89266L10.305 12.0005L7.19789 15.1084L8.88939 16.8003L11.9965 13.6937V13.6924Z' fill='%23#{$fill}'/%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+}
+@mixin bookmarkBtn($fill) {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='16' height='20' viewBox='0 0 16 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.14342 20C0.947112 19.9994 0.754264 19.9497 0.583472 19.8556C0.406953 19.7591 0.259969 19.6187 0.157564 19.4489C0.0551595 19.279 0.00101149 19.0858 0.000662537 18.8889V2.58889C-0.0147857 1.92257 0.240446 1.27718 0.711042 0.792582C1.18164 0.307982 1.82969 0.0232161 2.51474 0H13.4853C14.1703 0.0232161 14.8184 0.307982 15.289 0.792582C15.7596 1.27718 16.0148 1.92257 15.9993 2.58889V18.8889C15.9981 19.0828 15.9448 19.273 15.8445 19.4406C15.7443 19.6083 15.6007 19.7475 15.428 19.8444C15.2542 19.942 15.0572 19.9933 14.8566 19.9933C14.656 19.9933 14.4589 19.942 14.2852 19.8444L7.80573 16.2778L1.71481 19.8333C1.54288 19.9371 1.3457 19.9946 1.14342 20Z' fill='%23#{$fill}'/%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+}
+@mixin discoveryBtn($fill) {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M9.84038 8.2125H12.0804C13.1844 8.2125 13.9216 8.5289 14.2924 9.1621C14.6628 9.7941 14.8484 10.7013 14.8484 11.8825C14.8484 12.7377 14.7244 13.4753 14.4776 14.0949C14.0252 15.2237 13.2264 15.7877 12.0804 15.7877H9.84038V8.2125Z' fill='%23#{$fill}'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 12C0 5.3728 5.3728 0 12 0C18.6272 0 24 5.3728 24 12C24 18.6272 18.6272 24 12 24C5.3728 24 0 18.6272 0 12ZM12.4908 17.8032C14.2452 17.8032 15.5428 17.0812 16.3836 15.6376C17.0036 14.5672 17.3132 13.26 17.3132 11.7168C17.3132 11.108 17.2396 10.4676 17.0924 9.7956C16.9452 9.1236 16.67 8.4984 16.2652 7.9212C15.7612 7.2068 15.1016 6.7164 14.2876 6.4484C13.8096 6.2912 13.2104 6.2068 12.4908 6.1968H7.4864V17.8032H12.4908Z' fill='%23#{$fill}'/%3e%3c/svg%3e ");
+  background-repeat: no-repeat;
+}
+@mixin closeX($fill) {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='18' height='19' viewBox='0 0 18 19' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.54722 17.9619L16.6417 1.97953M16.6417 17.9619L1.54722 1.97953' stroke='%23#{$fill}' stroke-width='2' stroke-linecap='round'/%3e%3c/svg%3e");
+}
+@mixin rightArrowLight($fill) {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='14' height='22' viewBox='0 0 14 22' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath opacity='1' d='M0.792968 19.3332L2.8763 21.4165L13.293 10.9998L2.8763 0.583167L0.792969 2.6665L9.1263 10.9998L0.792968 19.3332Z' fill='%23#{$fill}'/%3e%3c/svg%3e");
+}
+@mixin dropdownArrow($fill) {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg width='11' height='7' viewBox='0 0 11 7' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M0.444716 2.565L4.32972 6.45C4.91472 7.035 5.85972 7.035 6.44472 6.45L10.3297 2.565C11.2747 1.62 10.5997 0 9.26472 0H1.49472C0.159716 0 -0.500284 1.62 0.444716 2.565Z' fill='%23#{$fill}'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+}
+
+.page-dev-svg-icons {
+  .verticalArrow {
+    @include verticalArrow('ffffff');
+  }
+  .additionalBtn {
+    @include additionalBtn('ffffff');
+  }
+  .clearBtn {
+    @include clearBtn('ffffff');
+  }
+  .bookmarkBtn {
+    @include bookmarkBtn('ffffff');
+  }
+  .discoveryBtn {
+    @include discoveryBtn('ffffff');
+  }
+  .closeX {
+    @include closeX('ffffff');
+  }
+  .rightArrowLight {
+    @include rightArrowLight('ffffff');
+  }
+  .dropdownArrow {
+    @include dropdownArrow('ffffff');
+  }
+}

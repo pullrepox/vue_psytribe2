@@ -1,0 +1,244 @@
+.track_list {
+  .v-progress-circular {
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    margin-left: -50px;
+    bottom: 100px;
+  }
+  .head_tracks_list {
+    display: flex;
+    margin: 25px 0 6px;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(#5F6986, .5);
+    ._left_ {
+      display: flex;
+      height: 100%;
+      align-items: center;
+      > div {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        color: #7481A6;
+        font-size: 14px;
+        font-weight: 300;
+        .sort {
+          display: flex;
+          flex-direction: column;
+          margin-left: 5px;
+
+          > span {
+            display: flex;
+            height: 8px;
+            font-size: 30px;
+            line-height: 0.3;
+            cursor: pointer;
+            overflow: hidden;
+            @include unSelect;
+            color: #5F6986;
+
+            &.active {
+              color: #fff;
+            }
+          }
+        }
+        &.title_ {
+          width: 355px;
+          padding-left: 130px;
+        }
+        &.artist_ {
+          width: 230px;
+        }
+        &.released_ {
+          width: 170px;
+        }
+        &.rating_ {
+          width: 100px;
+        }
+        &.bpm_ {
+          width: 100px;
+        }
+      }
+
+    }
+    ._right_ {
+      display: flex;
+      margin-right: 18px;
+      > span {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #5F6986;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        &:hover {
+          background-color: rgba(#fff, .1);
+          color: #fff;
+        }
+        &[aria-expanded="true"] {
+          background-color: rgba(#fff, .1);
+          color: #fff;
+        }
+      }
+    }
+  }
+
+  .item_track {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    height: 50px;
+    margin-bottom: 6px;
+    border-radius: 50px;
+    background-color: rgba(#5F6986, .1);
+    transition: 0.2s;
+
+    ._left_ {
+      display: flex;
+      align-items: center;
+    }
+
+    ._right_ {
+      display: flex;
+      align-items: center;
+    }
+
+    .play_pause {
+      width: 35px;
+      height: 35px;
+      margin-right: 70px;
+
+      > button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 35px;
+        height: 35px;
+        border-radius: 50%;
+
+        &.play {
+          background: rgba(#7481A6, .2);
+          transition: 0.2s;
+
+          > span {
+            font-size: 18px;
+          }
+          &:hover {
+            background-color: rgba(#7481A6, .5);
+          }
+        }
+
+        &.pause {
+          border: 2px solid #dcdcdc;
+
+          > span {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+
+    .cover_track {
+      width: 64px;
+    }
+
+    .like {
+
+
+    }
+
+    .track_name {
+      color: #f1f1f1;
+      font-size: 16px;
+      font-weight: 300;
+      width: 225px;
+      @include truncateString;
+      padding-right: 20px;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .artist_name {
+      color: #f1f1f1;
+      width: 230px;
+      padding-right: 20px;
+      @include truncateString;
+      font-weight: 300;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+    .track_released {
+      min-width: 170px;
+      font-weight: 300;
+    }
+
+    .track_rating {
+      min-width: 100px;
+      font-weight: 300;
+    }
+
+    .track_bpm {
+      min-width: 100px;
+      font-weight: 300;
+    }
+    .download_track {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      right: 65px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background-color: rgba(#fff, .1);
+      @include downloadAlbum('f1f1f1');
+      background-position: center center;
+      //margin-right: 9px;
+      transition: .2s;
+      font-size: 0;
+      color: #20C4F5;
+      text-transform: none;
+      font-weight: 400;
+      &:hover {
+        width: 90px;
+        border-radius: 38px;
+        font-size: 14px;
+        background-image: none !important;
+      }
+    }
+
+    .more {
+      color: #8A8A8A;
+      position: relative;
+      left: 10px;
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      @include buttonMore('8A8A8A');
+      background-position: center center;
+      &:hover {
+        @include buttonMore('ffffff');
+        background-color: rgba(#22293A, 1);
+      }
+      &[aria-expanded="true"] {
+        @include buttonMore('ffffff');
+        background-color: rgba(#22293A, 1);
+      }
+
+    }
+    &:hover {
+      background-color: rgba(#5F6986, .2);
+    }
+    &.selected {
+      background-color: rgba(#5F6986, .2);
+    }
+
+  }
+}
+

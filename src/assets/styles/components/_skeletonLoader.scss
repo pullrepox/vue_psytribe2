@@ -1,0 +1,171 @@
+$primaryBG: #1A1F34;
+$primaryTransparentBG: rgba(#1A1F34, .5);
+$playListItemTrackBG: rgba(95, 105, 134, 0.1);
+
+.skeleton-loader {
+    .skeleton_photo {
+        width: 240px;
+        height: 270px;
+        margin-right: 16px;
+        background: $primaryBG;
+        .v-skeleton-loader__image {
+            height: 100%;
+            background: transparent;
+        }
+    }
+    .right_info {
+        width: 100%;
+        > div {
+            background: $primaryBG;
+            margin-bottom: 5px;
+            .v-skeleton-loader__image {
+                background: transparent;
+            }
+        }
+    }
+
+    .line_215 {
+        width: 215px;
+        height: 30px;
+    }
+
+    .line_230 {
+        width: 230px;
+        height: 30px;
+    }
+
+    .line_330 {
+        width: 330px;
+        height: 30px;
+    }
+
+    .line_190 {
+        width: 190px;
+        height: 30px;
+    }
+
+    .line_description {
+        width: 100%;
+        height: 110px;
+    }
+
+    // parent (:props)
+    &.album-details {
+        display: flex;
+        margin-top: 35px;
+        margin-bottom: 55px;
+        .skeleton_photo {
+            width: 310px;
+            height: 311px;
+        }
+        .line_description {
+            margin-top: 30px;
+            margin-bottom: 0;
+        }
+    }
+    &.private-profile, &.user-profile {
+        display: flex;
+        .line_description {
+            display: none;
+        }
+    }
+    &.album-details-playlist {
+        .item_track {
+            height: 50px;
+            margin-bottom: 4px;
+            border-radius: 50px;
+            background: $playListItemTrackBG;
+            .v-skeleton-loader__image {
+                background: transparent;
+            }
+        }
+    }
+    &.default_grid_albums {
+        .item_grid_album {
+            &.v-skeleton-loader {
+                .v-skeleton-loader__image {
+                    border-radius: 12px;
+                    height: 232px;
+                    background: $primaryBG;
+                    @include max610 {
+                        height: 200px;
+                    }
+                    @include max479 {
+                        height: 170px;
+                    }
+                }
+
+                .v-skeleton-loader__list-item-two-line {
+                    background: transparent;
+                    padding-left: 0;
+
+                    .v-skeleton-loader__sentences {
+
+                        .v-skeleton-loader__text:first-child {
+                            width: 140px;
+                            height: 20px;
+                            border-radius: 4px;
+                            background: $primaryBG;
+                        }
+
+                        .v-skeleton-loader__text:last-child {
+                            width: 110px;
+                            height: 16px;
+                            border-radius: 4px;
+                            background: $primaryBG;
+                        }
+                    }
+                }
+            }
+        }
+        &.transparent {
+            .item_grid_album {
+                &.v-skeleton-loader {
+                    .v-skeleton-loader__image {
+                        background: $primaryTransparentBG;
+                    }
+
+                    .v-skeleton-loader__list-item-two-line {
+                        .v-skeleton-loader__sentences {
+                            .v-skeleton-loader__text:first-child,  .v-skeleton-loader__text:last-child {
+                                background: $primaryTransparentBG;
+                            }
+                        }
+                    }
+                }
+            }
+
+        }
+    }
+
+    &.default_list_albums {
+        .item_list_albums {
+            //background: #1A1F34;
+            background-color: rgba(95, 105, 134, 0.1);
+            .v-skeleton-loader__image {
+                background: transparent;
+            }
+        }
+        &.transparent {
+            .item_list_albums {
+                //background-color: rgba(95, 105, 134, 0.1);
+                //background: rgba(#1A1F34, .5);
+            }
+        }
+    }
+}
+
+.v-skeleton-loader {
+    &.mobile_subgenres_grid { // type card
+        .v-skeleton-loader__image {
+            height: 180px;
+            border-radius: 12px;
+        }
+        .v-skeleton-loader__card-heading {
+            background: transparent;
+            .v-skeleton-loader__heading {
+                margin-left: 0;
+            }
+        }
+    }
+}

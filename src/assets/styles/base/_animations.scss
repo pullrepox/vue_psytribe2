@@ -1,0 +1,170 @@
+.back-in-enter-active {
+  animation: backInUp .5s;
+}
+
+.back-in-leave-active {
+  animation: backInUp .5s reverse;
+}
+
+@keyframes backInUp {
+  0% {
+    transform: translateY(1200px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  80% {
+    transform: translateY(0px) scale(0.7);
+    opacity: 0.7;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.fade-in-enter-active {
+  animation: fadeIn .3s;
+}
+
+.fade-in-leave-active {
+  animation: fadeIn .3s reverse;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes bounceIn {
+  from,
+  20%,
+  40%,
+  60%,
+  80%,
+  to {
+    animation-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+  }
+
+  0% {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  20% {
+    transform: scale3d(1.1, 1.1, 1.1);
+  }
+
+  40% {
+    transform: scale3d(0.9, 0.9, 0.9);
+  }
+
+  60% {
+    opacity: 1;
+    transform: scale3d(1.03, 1.03, 1.03);
+  }
+
+  80% {
+    transform: scale3d(0.97, 0.97, 0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+.bounceIn {
+  animation-duration: calc(1s * 0.75);
+  animation-name: bounceIn;
+}
+
+@keyframes zoomIn {
+  from {
+    opacity: 0;
+    transform: scale3d(0.3, 0.3, 0.3);
+  }
+
+  50% {
+    opacity: 1;
+  }
+}
+
+.zoomIn {
+  animation-name: zoomIn;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translate3d(2000px, 0, 0);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.fade-in-right-enter-active {
+  animation: fadeInRight .3s;
+}
+
+.fade-in-right-leave-active {
+  animation: fadeInRight .5s reverse;
+}
+
+.fade-in-down-enter-active {
+  animation: fadeInDown .3s;
+}
+.fade-in-down-leave-active {
+  animation: fadeInDown .3s reverse;
+}
+
+
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+// FADE ANIMATION
+/* 1. declare transition */
+.fade-move,
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 0.5s cubic-bezier(0.55, 0, 0.1, 1);
+}
+
+/* 2. declare enter from and leave to state */
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  background-color: rgba(#dcdcdc, 0.2);
+}
+.fade-leave-active {
+  width: 100%;
+  position: absolute;
+}
+
+// FADE HEIGHT ANIMATION
+.fadeHeight-enter-active,
+.fadeHeight-leave-active {
+  transition: all 0.6s cubic-bezier(1, 0.01, 1, 0.01);
+}
+.fadeHeight-enter,
+.fadeHeight-leave-to
+{
+  transition: all 0.6s cubic-bezier(0.01, 1, 0.01, 1);
+}

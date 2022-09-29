@@ -1,0 +1,100 @@
+@import '../base/icons';
+
+// ADMIN MENU
+.admin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px !important;
+  border-radius: 50%;
+  //background: #282C47;
+  background-color: rgba(#fff, .1);
+  > span {
+    font-size: 26px;
+    color: #7481A6;
+  }
+  &:hover {
+    //background-color: rgba(#5F6986, .2);
+    > span {
+      color: #fff;
+    }
+  }
+  &[aria-expanded="true"] {
+    //background-color: #1A1F34;
+    > span {
+      color: #DCDCDC;
+    }
+  }
+
+  .global-notification {
+    position: absolute;
+    display: block;
+    width: 14px;
+    height: 14px;
+    right: 0;
+    top: -5px;
+    background: #E94E4E;
+    border-radius: 50%;
+    margin-left: 10px;
+  }
+}
+
+.v-menu__content {
+  &.menu_admin.menu-pointer {
+    .v-list {
+      .v-list-item {
+        &:hover {
+          color: #20C4F5;
+          > a, button {
+            color: #20C4F5;
+          }
+        }
+      }
+    }
+    &:after {
+      border-bottom-color: #3B2E48;
+      left: 89%;
+    }
+  }
+
+  .v-list.admin_menu {
+      background: #3B2E48;
+      .v-list-item__content {
+        padding: 0;
+      }
+
+      .head_admin_menu {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 60px;
+        @include userAdmin();
+        background-position: 20px bottom;
+        color: #5F6986;
+        font-size: 25px;
+        padding-left: 100px;
+        padding-right: 60px;
+        border-bottom: 1px solid #5F6986;
+        margin-bottom: 10px;
+      }
+      .v-list-item {
+        > a {
+          font-size: 15px;
+
+          .new-notification {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            background: #E94E4E;
+            border-radius: 5px;
+            margin-left: 10px;
+          }
+        }
+        &:hover {
+          background-color: transparent;
+        }
+      }
+    }
+}

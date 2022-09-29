@@ -1,0 +1,11 @@
+$themes: (
+  dark: (
+    bodyBackgroundColor: $bodyDarkBackground,
+    baseColor: red
+
+  ),
+  light: (
+    bodyBackgroundColor: $bodyLightBackground,
+    baseColor: blue
+  ) 
+);

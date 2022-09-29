@@ -1,0 +1,90 @@
+html, body {
+  width: 100%;
+  min-width: 100%;
+  height: 100%;
+  min-height: 100%;
+}
+.full_page {
+  height: 100%;
+  min-height: calc(100vh - 233px);
+}
+.layout {
+  flex-direction: column;
+}
+
+body, button, input, select, textarea {
+  font-family: $font;
+}
+
+.theme--light {
+  &.v-application {
+    background: transparent;
+    .secondary {
+      background-color: transparent !important;
+      border: none !important;
+    }
+  }
+}
+.theme--dark {
+  &.v-application {
+    background: transparent;
+    .secondary {
+      background-color: transparent !important;
+      border: none !important;
+    }
+  }
+}
+
+.container {
+  max-width: $maxWidth;
+  margin: 0 auto;
+  height: 100%;
+  padding: 0 20px;
+  &.auto_height {
+    height: auto;
+  }
+}
+.content-page {
+  height: 100%;
+  margin: 0;
+}
+body{
+    &.theme-light {
+      #app {
+        background: $bodyLightBackground;
+      }
+      .logo {
+        background: url(#{$imagePath}Logo.svg);
+      }
+    }
+    &.theme-dark {
+      //background: $bodyDarkBackground;
+      #app {
+        background: $bodyDarkBackground;
+      }
+      .logo {
+        background-image: url(#{$imagePath}Logo.svg);
+        background-repeat: no-repeat;
+        background-position: left center;
+        @include max479 {
+          background-image: url(#{$imagePath}/mobile/logo320.svg);
+        }
+      }
+    }
+}
+
+.no_data {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  min-height: 100px;
+}
+.loader {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

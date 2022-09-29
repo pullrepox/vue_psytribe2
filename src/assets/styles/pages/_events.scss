@@ -1,0 +1,784 @@
+.page_event_details {
+    .all_photos {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 200;
+
+        .container {
+            top: -60px;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 1px solid red;
+            z-index: 999;
+            position: relative;
+
+            .heading {
+                display: flex;
+                justify-content: space-between;
+
+                > h1 {
+                    font-family: 'Montserrat', sans-serif;
+                    font-size: 64px;
+                    font-weight: 500;
+                    color: #dcdcdc;
+                }
+
+                > button {
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: #FFFFFF;
+                    font-variant: small-caps;
+                }
+            }
+
+            > .pic {
+                display: flex;
+                border-radius: 10px;
+                margin: 20px;
+                overflow: hidden;
+            }
+        }
+
+        &:after {
+            @include pseudo();
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #282C47;
+        }
+    }
+
+    .head_event {
+        width: 100%;
+        height: 538px;
+        position: relative;
+        //overflow: hidden;
+        .background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            filter: blur(12px); // 27
+            background-size: 100%;
+            opacity: .2;
+        }
+
+        > .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+        }
+
+        .head_name_festival {
+            display: none;
+        }
+
+        &.no_images {
+            .head_name_festival {
+                font-family: 'Montserrat', sans-serif;
+                display: flex;
+                font-size: 42px;
+                font-weight: 500;
+                color: #282C47;
+            }
+        }
+
+        .show_all_photos {
+            position: absolute;
+            right: 20px; // 10
+            bottom: 10px;
+            display: flex;
+            align-items: center;
+            background-color: #282C47;
+            border-radius: 30px;
+            @include showAllPhotos('7481A6');
+            background-position: 20px center;
+            padding: 12px 16px 12px 48px;
+            font-size: 14px;
+            font-weight: 700;
+            color: #fff;
+        }
+    }
+
+    .event_description {
+        background: #10182B;
+        padding-top: 17px;
+        padding-bottom: 60px;
+
+        > .container {
+            display: flex;
+            justify-content: space-between;
+
+            > div {
+
+            }
+        }
+
+        .info_box {
+
+            // left box
+            .event_name {
+                font-family: 'Montserrat', sans-serif;
+                font-size: 42px;
+                font-weight: 500;
+                color: #DCDCDC;
+                margin-bottom: 2px;
+            }
+
+            .event_by {
+                margin-bottom: 18px;
+
+                > span {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #5F6986;
+                    margin-right: 7px;
+                }
+
+                > a {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #fff;
+                }
+            }
+
+            .event_subgenres {
+                display: flex;
+                flex-wrap: wrap;
+                border-bottom: 1px solid #282C47;
+                padding-bottom: 8px;
+                margin-bottom: 16px;
+
+                > span {
+                    background: rgba(196, 196, 196, 0.1);
+                    border-radius: 14px;
+                    font-size: 12px;
+                    color: #fff;
+                    padding: 4px 16px;
+                    margin-right: 4px;
+                    margin-bottom: 8px;
+                }
+            }
+
+            .event_date {
+                padding-left: 32px;
+                font-size: 16px;
+                margin-bottom: 16px;
+                @include date;
+                background-position: 0 2px;
+
+                .day_ {
+                    color: #DCDCDC;
+                    margin-bottom: 8px;
+                    font-weight: 500;
+                }
+
+                .month_ {
+                    color: #20C4F5;
+                    font-weight: 400;
+                }
+            }
+
+            .event_location {
+                padding-left: 32px;
+                font-size: 16px;
+                margin-bottom: 16px;
+                @include location;
+                background-position: 0 2px;
+
+                .location_label {
+                    font-weight: 500;
+                    color: #DCDCDC;
+                    margin-bottom: 11px;
+                }
+
+                .location_value {
+                    font-weight: 400;
+                    color: #20C4F5;
+                }
+            }
+
+            .event_tickets {
+                padding-left: 32px;
+                @include tickets;
+                background-position: 0 4px;
+
+                .tickets_label {
+                    font-size: 16px;
+                    font-weight: 500;
+                    color: #dcdcdc;
+                    margin-bottom: 8px;
+                }
+
+                .item_ticket {
+                    margin-bottom: 5px;
+                    position: relative;
+
+                    .ticket_name {
+                        font-size: 16px;
+                        color: #20C4F5;
+                        margin-bottom: 11px;
+
+                        .ticket_price {
+                            color: #fff;
+                        }
+                    }
+
+                    .ticket_description {
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 15px;
+                        line-height: 170%;
+                        padding-bottom: 12px;
+                    }
+
+                    &:not(:last-child) {
+                        &:after {
+                            @include pseudo;
+                            width: 220px;
+                            height: 1px;
+                            background-color: #282C47;
+                        }
+                    }
+                }
+            }
+
+            // right box
+            .action_actions {
+                display: flex;
+                justify-content: flex-end;
+                margin-bottom: 40px;
+
+                > div {
+                    .value {
+                        font-family: 'Montserrat', sans-serif;
+                        font-size: 32px;
+                        font-weight: 700;
+                        display: flex;
+                        justify-content: center;
+                        color: #dcdcdc;
+                    }
+
+                    > button {
+                        border-radius: 36px;
+                        border: 1px solid #7481A6;
+                        padding: 6px 16px 6px 45px;
+                        background-position: 15px center;
+                    }
+
+                    &.interested {
+                        margin-right: 40px;
+
+                        > button {
+                            @include whiteLike;
+                        }
+                    }
+
+                    &.share {
+                        > button {
+                            @include shareEvent;
+                        }
+                    }
+                }
+            }
+
+            .description_text {
+                font-family: 'Montserrat', sans-serif;
+                line-height: 170%;
+                color: #DCDCDC;
+            }
+
+            &:last-child {
+                flex-basis: 48%;
+                margin-left: 140px;
+            }
+        }
+    }
+
+    ._tabs {
+        background: #10182B;
+
+        .container {
+            border-top: 1px solid rgba(#282C47, .5);
+        }
+
+        .v-tabs {
+            padding-top: 10px;
+
+            .v-tabs-bar {
+                background-color: transparent;
+
+                .v-tabs-slider-wrapper {
+                    padding: 0 40px;
+                    width: 40px;
+
+                    .v-tabs-slider {
+                        background-color: #FF6523;
+                    }
+                }
+
+                .v-tab {
+                    color: #dcdcdc;
+
+                    &.v-tab--active {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    ._tabs_content {
+        padding: 30px;
+    }
+}
+
+.page_create_event {
+    //background-color: #031020;
+    > .container {
+        padding-top: 32px;
+        padding-bottom: 140px;
+
+        > h1 {
+            font-size: 64px;
+            font-weight: 500;
+            color: #dcdcdc;
+            margin-bottom: 10px;
+        }
+
+        > section {
+            background-color: #10182B;
+            border-radius: 5px;
+            padding: 16px 12px 35px 64px;
+
+            .row_section {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 32px;
+
+                ._name {
+                    width: 235px;
+                    font-size: 20px;
+                    color: #dcdcdc;
+                    padding-top: 18px;
+
+                    > .hint {
+                        > span {
+                            display: flex;
+                            font-size: 15px;
+                            list-style-type: square;
+                            color: #5F6986;
+                        }
+
+                        &.list {
+                            > span {
+                                padding-left: 14px;
+                                @include listDots('5F6986');
+                                background-position: 0 center;
+                            }
+                        }
+                    }
+                }
+
+                ._data {
+                    flex-basis: 80%;
+
+                    &.checkboxes {
+                        display: flex;
+                        flex-wrap: wrap;
+
+                        &.border_bottom {
+                            border-bottom: 1px solid #5F6986;
+                        }
+
+                        > div {
+                            margin-right: 35px;
+                            margin-bottom: 10px;
+                        }
+                    }
+
+                    &.date_pickers {
+                        display: flex;
+
+                        > div {
+                            display: flex;
+                            align-content: center;
+
+                            &.separation {
+                                display: flex;
+                                width: 34px;
+                                margin: 0 16px;
+                                position: relative;
+
+                                &:after {
+                                    @include pseudo();
+                                    width: 100%;
+                                    height: 1px;
+                                    background-color: #5F6986;
+                                    top: 50%;
+                                }
+                            }
+
+                            > .date {
+                                margin-right: 20px;
+
+                                > input {
+                                    padding-left: 50px;
+                                    @include date();
+                                    background-position: 18px center;
+                                }
+                            }
+
+                            > .time {
+                                > input {
+                                    padding-left: 50px;
+                                    @include time();
+                                    background-position: 18px center;
+                                }
+                            }
+
+                        }
+                    }
+
+                    &.photos {
+                        display: flex;
+
+                        .upload_photo {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 238px;
+                            height: 166px;
+                            background-color: #031020;
+                            border: 1px solid #282C47;
+                            border-radius: 5px;
+                            cursor: pointer;
+
+                            .select_img {
+                                font-size: 15px;
+                                color: #dcdcdc;
+                            }
+                        }
+
+                        .uploaded_photo {
+                            display: grid;
+                            flex-direction: row-reverse;
+                            grid-template-columns: repeat(4, 1fr);
+                            grid-column-gap: 10px;
+
+                            > div {
+                                display: flex;
+                                flex-direction: row-reverse;
+                                height: 166px;
+                                position: relative;
+                                margin-right: 11px;
+                                margin-bottom: 11px;
+                                cursor: grab;
+
+                                > img {
+                                    width: 100%;
+                                }
+
+                                .remove_photo {
+                                    width: 29px;
+                                    height: 29px;
+                                    background-color: rgba(#1A1F34, .8);
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    top: 12px;
+                                    right: 13px;
+                                    transition: 0.25s;
+                                    display: none;
+                                    @include basketRemove('dcdcdc');
+                                    background-position: center;
+                                    z-index: 1;
+
+                                    &:hover {
+                                        @include basketRemove('E94E4E');
+                                    }
+                                }
+
+                                &:after {
+                                    @include pseudo();
+                                    background-color: rgba(#1A1F34, .56);
+                                    width: 100%;
+                                    height: 100%;
+                                    top: 0;
+                                    left: 0;
+                                    opacity: 0;
+                                    transition: 0.25s;
+                                }
+
+                                &:hover {
+                                    .remove_photo {
+                                        display: flex;
+                                    }
+
+                                    &:after {
+                                        opacity: 1;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    &.tickets {
+                        &._data {
+                            display: block;
+
+                            .item_ticket {
+                                margin-bottom: 33px;
+                            }
+
+                            .action_ticket {
+                                font-weight: 500;
+                                color: #7481A6;
+                                padding-left: 30px;
+                                background-position: 0 center;
+
+                                &.add {
+                                    @include plusAdd('7481A6');
+                                }
+
+                                &.remove {
+                                    @include basketRemove('7481A6');
+                                }
+                            }
+                        }
+
+                        input {
+                            margin-bottom: 10px;
+                        }
+
+                        .ticket_inputs_row {
+                            display: flex;
+
+                            > input {
+                                &:first-child {
+                                    width: 135px;
+                                    flex-shrink: 0;
+                                    margin-right: 10px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .wrap_actions {
+            display: flex;
+
+            > button {
+                width: 227px;
+                height: 60px;
+
+                &:first-child {
+
+                    margin-right: 25px;
+                }
+            }
+        }
+    }
+
+}
+
+.page_front_event {
+    background: #10182B;
+    .wrap_carousel {
+        padding-top: 82px;
+        padding-bottom: 110px;
+        background-image: url('#{$imagePath}/events/slider-bg.svg');
+        background-position: top center;
+        background-repeat: no-repeat;
+    }
+
+    .main_container {
+        padding-bottom: 32px;
+        .wrap_filter_bar_events {
+            margin-top: -45px;
+        }
+    }
+
+    .wrap_events_result {
+        &.maps {
+            display: flex;
+
+            .maps_even_list {
+                display: flex;
+                flex-direction: column;
+                flex-basis: 30%;
+                max-height: 760px;
+                margin-right: 10px;
+                overflow-y: auto;
+
+                .maps_event {
+                    display: flex;
+                    border-radius: 12px;
+                    cursor: pointer;
+                    padding: 8px;
+
+                    &:hover {
+                        background-color: rgba(#8591b1, .1);
+                    }
+
+                    .cover_image {
+                        width: 110px;
+                        height: 90px;
+                        margin-right: 8px;
+                        border: 1px dashed #7481A6;
+                    }
+
+                    .small_info {
+                        display: flex;
+                        flex-direction: column;
+
+                        .name {
+                            font-size: 16px;
+                            color: #dcdcdc;
+                            margin-bottom: 4px;
+                        }
+
+                        .location {
+                            font-size: 14px;
+                            color: #aaa;
+                            margin-bottom: 4px;
+                        }
+
+                        .date {
+                            font-size: 14px;
+                            color: #aaa;
+                            margin-bottom: 4px;
+                        }
+
+                        .duration {
+                            font-size: 12px;
+                            color: #7481A6;
+                        }
+                    }
+                }
+            }
+
+            .google_map {
+                flex-basis: 70%;
+                height: 760px;
+                border-radius: 20px;
+                overflow: hidden;
+            }
+        }
+
+        &.list {
+
+        }
+    }
+
+
+    .wrap_difference_events {
+        background-color: #0C1324;
+        padding-top: 64px;
+
+        > .container {
+            .recently_viewed, .upcoming, .popular .new {
+                margin-bottom: 100px;
+                .heading_events {
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid #22293A;
+                    margin-bottom: 16px;
+
+                    > h4 {
+                        font-size: 24px;
+                        font-weight: 300;
+                        color: #fff;
+                    }
+
+                    .view_all {
+                        display: flex;
+                        align-items: center;
+                        height: 32px;
+                        padding-left: 16px;
+                        padding-right: 29px;
+                        background: #282C47;
+                        border-radius: 120px;
+                        color: #dcdcdc;
+                        font-size: 15px;
+                    }
+                }
+
+                .wrap_this_events {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    //column-gap: 33px;
+                    //row-gap: 43px;
+                    //margin-bottom: 60px;
+                }
+
+
+                .event_box {
+
+                }
+            }
+        }
+    }
+}
+
+
+.event_box {
+    display: flex;
+    flex-direction: column;
+    width: 307px;
+    height: 265px;
+    border-radius: 12px;
+    overflow: hidden;
+
+    .event_img {
+        width: 100%;
+        height: 160px;
+    }
+
+    .event_description {
+        padding: 8px 15px 12px 15px;
+        background-color: #282C47;
+
+        .name {
+            color: #dcdcdc;
+            font-size: 16px;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            line-height: 150%;
+            margin-bottom: 2px;
+        }
+
+        .location {
+            font-size: 14px;
+            letter-spacing: 0.04em;
+            font-weight: 500;
+            line-height: 150%;
+            color: #7481A6;
+        }
+
+        .date {
+            font-size: 12px;
+            letter-spacing: 0.04em;
+            font-weight: 500;
+            line-height: 150%;
+            text-transform: uppercase;
+            color: #7481A6;
+        }
+
+        .genre {
+            font-size: 14px;
+            letter-spacing: 0.03em;
+            line-height: 150%;
+            color: #5F6986;
+        }
+    }
+}

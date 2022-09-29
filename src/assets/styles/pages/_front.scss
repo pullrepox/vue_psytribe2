@@ -1,0 +1,263 @@
+$themes: (dark: (
+                variableOne: #fff,
+),
+        light: (
+                variableOne: #fff,
+        ));
+
+
+
+.top_row {
+  width: 100%;
+  margin-bottom: 30px;
+  height: 60px;
+  background: #282C47;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  > .container {
+    display: flex;
+    align-items: center;
+  }
+
+  // v-tabs styles
+  .v-tabs {
+    height: 100%;
+    .v-slide-group__prev {
+      display: none !important;
+    }
+    .v-tabs-slider-wrapper {
+      height: 3px !important;
+    }
+    > .v-tabs-bar {
+      height: inherit;
+      background-color: transparent;
+
+      .v-slide-group__wrapper {
+        .v-slide-group__content {
+
+          // item
+          > .v-tab {
+            margin-left: 0 !important;
+            display: flex;
+            align-items: center;
+            font-size: 17px;
+            color: #f1f1f1;
+            > a {
+
+            }
+            &.v-tab--active {
+
+            }
+
+          }
+        }
+      }
+    }
+  }
+
+  .support_ptn {
+    color: #7481A6;
+    font-size: 18px;
+  }
+
+  &.support_nav {
+    background-color: #282C47;
+    &.admin_style {
+      background-color: #2D2339;
+      ul {
+        > li {
+          margin-right: 0; // :TODO TEMP
+          > a {
+            font-size: 10px; // :TODO TEMP
+            &:after {
+              background-color: #7481A6;
+            }
+          }
+        }
+      }
+    }
+
+    ul {
+      > li {
+        > a {
+          font-size: 17px;
+          @include max610 {
+            font-size: 15px;
+            text-align: center;
+          }
+
+          &:after {
+            background-color: #20C4F5;
+          }
+
+          &.active, &:hover {
+            &:after {
+              margin: 0;
+              width: 33px;
+              left: 50%;
+              transform: translateX(-50%);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.head_albums {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  margin-top: 8px;
+  border-bottom: 1px solid rgba(#5F6986, .5);
+  position: relative;
+
+  > div {
+    display: flex;
+    align-items: center;
+    color: #5F6986;
+    font-size: 14px;
+    font-weight: 300;
+
+    .sort {
+      display: flex;
+      flex-direction: column;
+      margin-left: 5px;
+
+      > span {
+        display: flex;
+        height: 8px;
+        font-size: 30px;
+        line-height: 0.3;
+        cursor: pointer;
+        overflow: hidden;
+        @include unSelect;
+        color: #5F6986;
+
+        &.active {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.head_albums {
+  .top_rated_index {
+    width: 55px;
+  }
+  .cover_img_ {
+    width: 55px;
+    margin-left: 16px;
+  }
+
+  .like_album_ {
+    display: flex;
+    width: 83px;
+    padding-left: 22px;
+    &.hidden_like {
+      width: 0;
+      padding: 16px;
+    }
+  }
+
+  .title_ {
+    width: 260px;
+  }
+
+  .artist_ {
+    width: 230px;
+  }
+
+  .released_ {
+    width: 170px;
+  }
+
+  .rating_ {
+    width: 330px;
+  }
+
+  .downloads_ {
+
+  }
+
+  .actions_ {
+    margin-left: 55px;
+    position: absolute;
+    right: 18px;
+    top: 0;
+
+    > button {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      > span {
+        color: #5F6986;
+      }
+
+      &[aria-expanded="true"] {
+        background-color: rgba(#fff, .1);
+
+        > span {
+          color: #fff;
+        }
+      }
+
+      &:hover {
+        background-color: rgba(#fff, .1);
+
+        > span {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+.head_tracks {
+  .title_ {
+    justify-content: center;
+    width: 280px;
+    padding-left: 65px;
+  }
+
+  .artist_ {
+    width: 260px;
+    //padding-left: 30px;
+  }
+
+  .released_ {
+    width: 170px;
+  }
+
+  .rating_ {
+    width: 100px;
+  }
+
+  .bpm_ {
+    width: 100px;
+  }
+}
+
+.wrap_filter_bar_albums {
+  width: 100%;
+  margin-top: -60px;
+  position: relative;
+  top: 30px;
+  z-index: 1;
+}
+
+.albums_list {
+  position: relative;
+
+  .v-progress-circular {
+    //position: fixed;
+    z-index: 1;
+    left: 50%;
+    margin-left: -50px;
+    bottom: 100px;
+  }
+}

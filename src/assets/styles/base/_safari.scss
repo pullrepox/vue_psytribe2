@@ -1,0 +1,17 @@
+.album_background {
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+}
+.artist_profile .artist_profile_head .profile_head_background {
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+}
+
+.item_grid_album .album_cover {
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+}
+.album.short {
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+}

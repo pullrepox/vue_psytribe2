@@ -1,0 +1,280 @@
+$themes: (
+        dark: (
+                pageBackground: $bodyDarkBackground,
+                obliqueBackground: #1d2425,
+                fromBackground: #1d2425,
+                titleColor: #dcdcdc,
+                forgotPasswordBorderColor: #f1f1f1
+        ),
+        light: (
+                pageBackground: $bodyLightBackground,
+                obliqueBackground: #fff,
+                fromBackground: #fff,
+                titleColor: #333,
+                forgotPasswordBorderColor: #000
+        )
+);
+
+.join_page {
+  display: flex;
+  justify-content: center;
+  @include themify($themes) {
+    background-color: themed(pageBackground);
+  }
+
+  > .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .loader {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .form {
+    margin-top: -100px;
+    display: flex;
+    width: 367px;
+    -webkit-transition: transform 1s;
+    transition: transform 1s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    position: relative;
+
+    &.regist {
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+
+      .login {
+        display: none;
+      }
+    }
+
+    &.login {
+      .regist {
+        display: none;
+      }
+    }
+  }
+
+  .form_join {
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 5px;
+    background-color: #031020;
+
+    &.login {
+      .facebook_connect {
+        background-position: 95px center;
+      }
+    }
+
+    &.regist {
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+      padding: 20px 0;
+
+      .facebook_connect {
+        background-position: 85px center;
+      }
+
+      form {
+        button[type="submit"] {
+          margin-top: 10px;
+        }
+      }
+
+      > h2 {
+        font-weight: 800;
+      }
+    }
+
+    &.profile_inform {
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+      padding: 54px 0;
+    }
+
+    > h2 { // title
+      text-align: center;
+      font-size: 26px;
+      margin-bottom: 13px;
+      line-height: 150%;
+      background: linear-gradient(45deg, #FF0099 33%, #20A8F5 66%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      color: #20A8F5;
+
+      &.title_profile_inform {
+        font-size: 30px;
+        background: transparent;
+        color: #DBDBDB;
+        -webkit-text-fill-color: #DBDBDB;
+      }
+    }
+
+    .facebook_connect {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 60px;
+      margin: auto;
+      @include facebookSquare;
+      padding-left: 40px;
+      z-index: 0;
+      border-radius: 42px;
+      background-color: #4E6297;
+      font-weight: 500;
+      font-size: 16.5px;
+      color: #fff;
+    }
+
+    > span { // or
+      display: flex;
+      justify-content: center;
+      margin: 25px 0 18px 0;
+      color: #dbdbdb;
+      font-size: 20px;
+      line-height: 150%;
+    }
+
+    form {
+      padding-bottom: 18px;
+
+      .input_outline {
+        margin-bottom: 10px;
+      }
+
+      .i_am {
+        margin-top: 14px;
+
+        .title {
+          font-size: 18px;
+          line-height: 150%;
+          white-space: nowrap;
+          color: #dbdbdb;
+        }
+
+        .wrap_checkbox {
+          display: grid;
+          grid-template-columns: 1fr 1fr 60px;
+          margin: 12px 0 10px 0;
+
+          .item_checkbox {
+            flex-basis: 33%;
+            margin-bottom: 16px;
+
+            > label {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      button[type="submit"], .join {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+        background-color: #20f54f;
+        z-index: 0;
+        width: 100%;
+        height: 60px;
+        border-radius: 50px;
+        color: #fff;
+        font-size: 20px;
+        font-weight: 500;
+
+        &.invalidEmail {
+          background-color: #E94E4E;
+        }
+
+        &.invalid {
+          background-color: #7D7D7D;
+          z-index: 0;
+        }
+
+        &.save {
+          background-color: #20C4F5;
+        }
+
+        &.log_in {
+          background-color: #20C4F5;
+          z-index: 0;
+        }
+      }
+    }
+
+    .already_account {
+      display: flex;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 150%;
+      text-align: center;
+      color: #f1f1f1;
+
+      > button {
+        border: none;
+        background-color: transparent;
+        margin-left: 8px;
+        font-size: 16px;
+        color: #20c4f5;
+      }
+    }
+
+    .go_forgot_password {
+      display: flex;
+      justify-content: center;
+      font-size: 16px;
+      line-height: 150%;
+      font-weight: 500;
+      margin-top: 15px;
+      padding-bottom: 8px;
+      color: #f1f1f1;
+      border-bottom: 1px solid #4a4a4a;
+    }
+
+    .create_new_account {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 60px;
+      background-color: #64C145;
+      color: #fff;
+      font-size: 20px;
+      font-weight: 500;
+      border-radius: 50px;
+      margin: auto;
+      z-index: 1;
+    }
+  }
+
+
+  .message_error {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 150%;
+    width: 100%;
+    text-align: center;
+    color: #E94E4E;
+    padding: 5px 0;
+    font-size: 16px;
+  }
+}
+
+

@@ -1,0 +1,19 @@
+.advertisement {
+  max-width: 972px;
+  margin: 64px auto;
+
+  .advertisement-title {
+    color: #8591B1;
+    margin-left: 8px;
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  ins.adsbygoogle {
+    display: flex;
+    justify-content: center;
+    border: 2px solid #8591B1;
+    border-radius: 12px;
+    width: 100%;
+  }
+}

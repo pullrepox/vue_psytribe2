@@ -1,0 +1,87 @@
+// BASE
+@import 'base/mixins';
+@import 'base/null';
+@import 'base/settings'; // variables, etc...
+@import 'base/theme';
+@import "base/animations";
+@import "base/helpers";
+@import 'base/safari';
+
+// ICONS
+@import 'base/icons';
+@import 'base/icons/mainIcons';
+
+// LAYOUT
+@import 'layout/general'; // rules for the overall design of the site
+@import 'layout/header';
+@import 'layout/footer';
+
+// the attachment components
+@import 'components/albums/mainAlbums';
+
+
+// MOBILE
+@import 'mobile/pages/subgenresList';
+@import 'mobile/pages/albumsList';
+@import 'mobile/pages/albumDetails';
+@import 'mobile/components/playerDrawer';
+
+
+// COMPONENTS
+@import 'components/forms';
+@import 'components/trackList';
+@import 'components/scroll';
+@import 'components/important';
+@import 'components/events/eventBox';
+@import 'components/comments';
+@import 'components/tabs';
+@import 'components/player';
+@import 'components/album';
+@import 'components/rating';
+@import 'components/forgotPassword';
+@import 'components/playlist';
+@import 'components/secondaryNav';
+@import 'components/passwordComplexity';
+@import 'components/keys';
+@import 'components/filterBarAlbums';
+@import 'components/search';
+@import 'components/buttons';
+@import 'components/projectIsUnderConstructionWarning';
+@import 'components/advertisement';
+@import 'components/modalImage';
+@import 'components/nothingHere';
+@import 'components/skeletonLoader';
+
+// music components
+@import 'components/music/userPlayLists';
+
+// events components
+@import 'components/events/carousel';
+
+// PAGES
+@import 'pages/front';
+@import 'pages/albumDetails';
+@import 'pages/404';
+@import 'pages/join';
+@import 'pages/login';
+@import 'pages/registration';
+@import 'pages/profile';
+@import 'pages/settings';
+@import 'pages/support'; // About-FAQ, Changelog, Suggest a feature, Report a bug
+@import 'pages/suggestions';
+@import 'pages/search';
+@import 'pages/after-actions-pages'; // logged-out, password-changes pages
+@import 'pages/explore';
+@import 'pages/is_this_you';
+@import 'pages/verification_request_submitted';
+@import 'pages/events';
+@import 'pages/library';
+@import 'pages/uploaded';
+@import 'pages/memberships';
+@import 'pages/follow';
+
+
+//PLUGINS STYLES UPDATE
+@import "plugins/main";
+
+

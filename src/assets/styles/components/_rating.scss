@@ -1,0 +1,45 @@
+.wrap_rating {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: #f1f1f1;
+    font-size: 14px;
+    z-index: 1;
+    .vue-rate-it-rating {
+        > div {
+            display: flex;
+            > div {
+                display: inline-flex !important;
+            }
+        }
+    }
+    .rating_info {
+        padding-left: 15px;
+        margin-left: 12px;
+        border-left: 1px solid #5F6986;
+    }
+    .rating_loader {
+        font-size: 16px;
+    }
+    .thank_you_voting {
+        position: absolute;
+        width: 100%;
+        background: #031020;
+        text-align: center;
+        padding: 4px 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.5s;
+
+        &.active {
+            opacity: 1;
+        }
+    }
+    &.active_loader {
+        .rating_info {
+            padding: 0;
+            margin: 0;
+            border: none;
+        }
+    }
+}

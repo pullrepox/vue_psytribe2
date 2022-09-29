@@ -1,0 +1,101 @@
+nav.secondary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  ul {
+    height: inherit;
+    display: flex;
+    > li {
+      display: flex;
+      align-items: center;
+      height: inherit;
+      padding-top: 3px;
+      &:not(:last-child) {
+        margin-right: 15px;
+      }
+      .dropdown {
+        height: 100%;
+        button {
+          height: 100%;
+        }
+      }
+      > a {
+        padding: 23px;
+      }
+      > a, button {
+        display: flex;
+        align-items: center;
+        height: 100%;
+        padding: 0 5px;
+        color: #f1f1f1;
+        font-size: 17px;
+        transition: 0.5s;
+        position: relative;
+        &:after {
+          @include pseudo;
+          width: 30px;
+          height: 0;
+          background-color: #20C4F5;
+          bottom: 0;
+          left: 50%;
+          margin-left: -15px;
+          transition: 0.2s;
+        }
+        &:hover {
+          &:after {
+            height: 3px;
+          }
+        }
+        &.active {
+          &:after {
+            height: 3px;
+          }
+        }
+      }
+    }
+  }
+  .donate {
+    color: #E94E4E;
+    font-weight: 500;
+    font-size: 20px;
+  }
+  .deactivate {
+    height: 100%;
+    color: #E94E4E;
+    font-size: 17px;
+    @include exclamationMark();
+    background-position: 0 center;
+    padding-left: 30px;
+  }
+  &.subgenre {
+    button {
+      padding-left: 5px;
+      padding-right: 5px;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  // secondary_nav
+  .settings_nav {
+    .container {
+      display: flex;
+      justify-content: space-between;
+
+    }
+  }

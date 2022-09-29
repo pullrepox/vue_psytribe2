@@ -1,0 +1,68 @@
+.play_album {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: rgba(#7481A6, .6);
+  line-height: 1;
+  > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 41px;
+    height: 41px;
+    border: 7px solid #dcdcdc;
+    border-radius: 50%;
+    background-color: #dcdcdc;
+    color: #22293a;
+    font-size: 26px;
+  }
+  &:hover {
+    > span {
+      border-color: #fff;
+      background-color: #fff;
+    }
+  }
+}
+
+.pause_album {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background-color: rgba(#7481A6, .6);
+  line-height: 1;
+
+  > span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 41px;
+    height: 41px;
+    background-color: #dcdcdc;
+    border-radius: 50%;
+    @include gridAlbumPauseButton('22293a');
+    background-position: center center;
+  }
+  &:hover {
+    > span {
+      background-color: #fff;
+    }
+  }
+}
+
+
+
+
+
+
+// IMPORTS
+@import './gridAlbum';
+@import './listAlbum';
+@import './pagination';
+
+

@@ -1,0 +1,158 @@
+.p-album-details {
+  .album_background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 500px;
+    -webkit-filter: blur(150px);
+    -moz-filter: blur(150px);
+    -ms-filter: blur(15px);
+    filter: blur(150px);
+    background-size: 100%;
+    &:after {
+      @include pseudo;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      //-webkit-filter: blur(150px);
+      //-moz-filter: blur(150px);
+      //-ms-filter: blur(15px);
+      //filter: blur(15px);
+      background-size: 100%;
+      background-color: rgba(#333, .75);
+    }
+  }
+}
+.more_from_artist {
+  ._head_section {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 23px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #282C47;
+    padding-top: 64px;
+    margin-bottom: 16px;
+  }
+  .wrap_more_albums {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-column-gap: 32px;
+    grid-row-gap: 32px;
+    padding-bottom: 60px;
+    @include max1289 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    @include max1150 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+    @include max767 {
+      grid-template-columns: repeat(2, 1fr);
+      grid-column-gap: 10px;
+      grid-row-gap: 20px;
+    }
+  }
+}
+
+.album_details_like_button {
+  #heart-svg {
+    cursor: pointer;
+    overflow: visible;
+    width: 45px;
+    &:hover {
+      .heart_path {
+        fill: #EE7A7A !important;
+      }
+    }
+    .heart_path {
+      transform-origin: center;
+      &:hover {
+        fill: #EE7A7A;
+      }
+    }
+    &.heart_svg {
+      .heart_path {
+        transform-origin: center;
+        animation: animateHeartOut .3s linear forwards;
+
+        &:hover {
+          fill: #EE7A7A;
+        }
+      }
+    }
+  }
+  &.active {
+    #heart {
+      fill: #E94E4E;
+    }
+  }
+
+  @keyframes animateCircle {
+    40% {
+      transform: scale(10);
+      opacity: 1;
+      fill: #DD4688;
+    }
+    55% {
+      transform: scale(11);
+      opacity: 1;
+      fill: #D46ABF;
+    }
+    65% {
+      transform: scale(12);
+      opacity: 1;
+      fill: #CC8EF5;
+    }
+    75% {
+      transform: scale(13);
+      opacity: 1;
+      fill: transparent;
+      stroke: #CC8EF5;
+      stroke-width: .5;
+    }
+    85% {
+      transform: scale(17);
+      opacity: 1;
+      fill: transparent;
+      stroke: #CC8EF5;
+      stroke-width: .2;
+    }
+    95% {
+      transform: scale(18);
+      opacity: 1;
+      fill: transparent;
+      stroke: #CC8EF5;
+      stroke-width: .1;
+    }
+    100% {
+      transform: scale(19);
+      opacity: 1;
+      fill: transparent;
+      stroke: #CC8EF5;
+      stroke-width: 0;
+    }
+  }
+
+  @keyframes animateHeart {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.4);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes animateHeartOut {
+    0% {
+      transform: scale(1.4);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+}

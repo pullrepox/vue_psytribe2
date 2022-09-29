@@ -1,0 +1,81 @@
+// path to img-folder
+$imgPath: 'assets/img/';
+$imagePath: 'assets/image/';
+
+// fonts
+$font: 'Roboto', sans-serif;
+
+// size
+$maxWidth: 1290px + 40px; //padding
+
+
+// colors
+$bodyDarkBackground: #031020;
+$bodyLightBackground: #f1f1f1;
+
+
+
+
+////////////////////////////////////////////
+$bgWhite: #fff;
+// $bgGray: #f6f6f6; //  change theme (1)
+$bgGray: #333; // change theme (1)
+
+// text colors
+$black: #000;
+$white: #fff;
+
+$gray20: #333;
+$gray81: #cfcfcf;
+$gray88: #e0e0e0;
+$gray90: #e5e5e5;
+$taupeGray: #888;
+
+$blue: #20c4f5;
+$paleBlue: #D8F0FC;
+$error: #f57b7b;
+
+
+// back theme
+$gray29: #4a4a4a;
+$green : #96C433;
+$darkGray: #b1b1b1;
+
+
+
+// icons color
+$Blue: 20c4f5;
+$White: FFFFFF;
+$Black: '000000';
+
+// components sizes and positioning
+$playerHeight: 70px;
+$playListHeight: 615px;
+$playListHeaderHeight: 50px;
+
+.v-tabs-items {
+  background-color: transparent !important;
+}
+.v-tab {
+  text-transform: none !important;
+  font-size: 20px;
+  font-weight: 300;
+  min-width: auto;
+  padding: 0;
+  margin-right: 30px;
+  > span {
+    opacity: 0;
+  }
+  &:before {
+    background-color: transparent;
+  }
+  &:hover {
+    color: #fff !important;
+  }
+}
+.v-tabs-slider-wrapper {
+  padding: 0 15px;
+}
+.v-tabs-slider {
+  background-color: #20C4F5;
+}

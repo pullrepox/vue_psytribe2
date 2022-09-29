@@ -1,0 +1,327 @@
+// mandatory fixed width
+@mixin truncateString {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin unSelect {
+  -webkit-touch-collout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+// responsive breakpoints
+$break-small-portrait: 320px;
+$break-medium-portrait: 480px;
+$break-small-landscape: 750px;
+$break-medium: 1024px;
+$break-large: 1124px;
+
+//@mixin respond-to($media) {
+//  @if $media == smallest-phones {
+//    @media only screen and (max-width: $break-small-portrait) {
+//      @content;
+//    }
+//  }
+//  @if $media == small-phones {
+//    @media only screen and (min-width: $break-small-portrait) {
+//      @content;
+//    }
+//  }
+//  @if $media == medium-phones {
+//    @media only screen and (min-width: $break-medium-portrait) and (max-width: $break-small-landscape) {
+//      @content;
+//    }
+//  }
+//  @if $media == phones {
+//    @media only screen and (min-width: $break-small-portrait) and (max-width: $break-small-landscape) {
+//      @content;
+//    }
+//  } @else if $media == tablets {
+//    @media only screen and (min-width: $break-small-landscape + 1) and (max-width: $break-medium) {
+//      @content;
+//    }
+//  } @else if $media == tablets-landscape {
+//    @media only screen and (min-width: $break-small-landscape + 1) and (max-width: $break-medium) and (orientation: landscape) {
+//      @content;
+//    }
+//  } @else if $media == phones-tablets {
+//    @media only screen and (min-width: $break-small-portrait) and (max-width: $break-medium - 1) {
+//      @content;
+//    }
+//  } @else if $media == wide-screens {
+//    @media only screen and (min-width: $break-large) {
+//      @content;
+//    }
+//  } @else if $media == custom-phones-tablets {
+//    @media only screen and (min-width: $break-small-portrait) and (max-width: $break-medium) {
+//      @content;
+//    }
+//  } @else if $media == phone-landscape {
+//    @media only screen and (min-width: $break-small-portrait) and (max-width: $break-small-landscape) and (orientation: landscape) {
+//      @content;
+//    }
+//  } @else if $media == medium-mobile-only {
+//    @media only screen and (max-width: $break-medium-portrait) {
+//      @content;
+//    }
+//  } @else if $media == mobile-only {
+//    @media only screen and (max-width: $break-small-landscape) {
+//      @content;
+//    }
+//  } @else if $media == tablets-up {
+//    @media only screen and (min-width: $break-small-landscape + 1) {
+//      @content;
+//    }
+//  } @else if $media == desktops {
+//    @media only screen and (min-width: $break-medium) {
+//      @content;
+//    }
+//  }
+//}
+
+//////////////////////////////////////////
+// default width = 1330px;////////////////
+@mixin max1289 { // 1000px
+  @media (max-width: 1289px) {
+    @content;
+  }
+}
+
+@mixin max1150 { // 1000px
+  @media (max-width: 1150px) {
+    @content;
+  }
+}
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+@mixin max999 { // 768px
+  @media (max-width: 999px) {
+    @content;
+  }
+}
+
+@mixin max865 { // 768px
+  @media (max-width: 865px) {
+    @content;
+  }
+}
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+@mixin max767 { // 480
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin max610 { // 480
+  @media (max-width: 610px) {
+    @content;
+  }
+}
+
+//////////////////////////////////////////
+//////////////////////////////////////////
+@mixin max479 { // 320
+  @media (max-width: 479px) {
+    @content;
+  }
+}
+
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+  content: $content;
+  display: $display;
+  position: $pos;
+}
+
+@mixin hexagon($w: 100%, $h: 100%, $bgc: transparent, $color: #000, $fz: 14px, $fw: 400) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: $w;
+  height: $h;
+  background: $bgc;
+  font-size: $fz;
+  font-weight: $fw;
+  position: relative;
+  z-index: 1;
+  border: none;
+  color: $color;
+  > a {
+    color: $color;
+  }
+  &::before, &::after {
+    @include pseudo;
+    width: 0;
+    height: 0;
+    border-top: calc($h / 2) solid transparent;
+    border-bottom: calc($h / 2) solid transparent;
+  }
+  &::before {
+    border-right: 15px solid $bgc;
+    right: 100%;
+  }
+
+  &::after {
+    border-left: 15px solid $bgc;
+    left: 100%;
+  }
+  &.transparent {
+    position: relative;
+
+    > span {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
+
+@mixin triangle-bottom-right($bgc, $widthSize, $heightSize) { // |\
+  width: 0; // | \
+  height: 0; // |  \
+  border-bottom: $heightSize solid $bgc; // |___\
+  border-right: $widthSize solid transparent;
+}
+
+@mixin triangle-bottom-right-reverse($bgc, $widthSize, $heightSize) {
+  width: 0;
+  height: 0;
+  border-top: $heightSize solid $bgc;
+  border-right: $widthSize solid transparent;
+}
+
+@mixin triangle-bottom-left($bgc, $widthSize, $heightSize) { //       /|
+  width: 0; //      / |
+  height: 0; //     /  |
+  border-bottom: $heightSize solid $bgc; //    /   |
+  border-left: $widthSize solid transparent; //   /____|
+}
+
+@mixin triangle-left($bgc, $widthSize, $heightSize) { // the tricot is directed to the left
+  width: 0;
+  height: 0;
+  border-top: calc($heightSize / 2) solid transparent;
+  border-right: $widthSize solid $bgc;
+  border-bottom: calc($heightSize / 2) solid transparent;
+}
+
+@mixin triangle-right($bgc, $widthSize, $heightSize) { // the tricot is directed to the right
+  width: 0;
+  height: 0;
+  border-top: calc($heightSize / 2) solid transparent;
+  border-left: $widthSize solid $bgc;
+  border-bottom: calc($heightSize / 2) solid transparent;
+}
+
+@mixin btnRoundAdd() {
+  border: none;
+  outline: none;
+  color: $gray20;
+  font-size: 17px;
+  background: url(#{$imgPath}add_round.svg) -5px no-repeat;
+  height: 30px;
+  padding-left: 32px;
+}
+
+@mixin svgSpiderWebUpperLeft() {
+  @include pseudo;
+  top: 0;
+  left: 0;
+  @include spiderWebUpperLeft($White);
+  width: 230px;
+  height: 560px;
+  background-size: 100%;
+  background-position: 0 0;
+}
+
+@mixin svgSpiderWebDownRight() {
+  @include pseudo;
+  bottom: 0;
+  right: 0;
+  @include spiderWebDownRight($White);
+  width: 150px;
+  height: 135px;
+  background-size: 150px;
+  background-position: 0px 0px;
+}
+
+@mixin coverCenter() {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+@mixin borderGradient() {
+  border-left-width: 1px;
+  border-style: solid;
+  -webkit-border-image: -webkit-gradient(linear, 0 0, 0 100%, from(rgba(#FF0099, .4)), to(rgba(#20A8F5, .24))) 1 100%;
+  -webkit-border-image: -webkit-linear-gradient(rgba(#FF0099, .4), rgba(#20A8F5, .24)) 1 100%;
+  -moz-border-image: -moz-linear-gradient(rgba(#FF0099, .4), rgba(#20A8F5, .24)) 1 100%;
+  -o-border-image: -o-linear-gradient(rgba(#FF0099, .4), rgba(#20A8F5, .24)) 1 100%;
+  border-image: linear-gradient(to bottom, rgba(#FF0099, .4), rgba(#20A8F5, .24)) 1 100%;
+}
+
+/*
+* Implementation of themes
+*/
+@mixin themify($themes: $themes) {
+  @each $theme, $map in $themes {
+    .theme-#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}
+
+@mixin blueShadow() {
+  background-image: url(#{$imagePath}blue-shadow.png);
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+@mixin icon($color, $size, $horizontal: center, $vertical: center) {
+  > span {
+    color: $color;
+    font-size: $size;
+    display: flex;
+    @if $horizontal == left {
+      display: flex;
+    }
+    @if $horizontal == center {
+      justify-content: center;
+    }
+    @if $horizontal == right {
+      justify-content: flex-end;
+    }
+    @if $vertical == left {
+      align-items: flex-start;
+    }
+    @if $vertical == center {
+      align-items: center;
+    }
+    @if $vertical == right {
+      align-items: flex-end;
+    }
+  }
+}

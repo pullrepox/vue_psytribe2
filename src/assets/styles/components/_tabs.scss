@@ -1,0 +1,93 @@
+$themes: 
+    (dark: (
+      tabsBackgroundColor: rgba(74, 74, 74, 0.25),
+      tabsBoxShadow: none,
+        titleTextColor: #fff,
+        countTextColor: #fff
+    ),
+    light: (
+      tabsBackgroundColor: #fff,
+      tabsBoxShadow: 0px, 2px 4px rgba(125,125,125,0.1)
+      titleTextColor: #333,
+      countTextColor: #7D7D7D,
+    ));
+
+.tabs {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  z-index: 1;
+  border-radius: 5px;
+  @include themify($themes) {
+    background-color: themed(tabsBackgroundColor);
+    box-shadow: themed(tabsBoxShadow);
+  }
+  &.active {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+
+  ._left {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .tab {
+      font-size: 17px;
+      font-weight: 400;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin-right: 30px;
+      cursor: pointer;
+      border-bottom: 2px solid transparent;
+      transition: 0.4s;
+      @include themify($themes) {
+        color: themed(titleTextColor);
+      }
+      > .count {
+        @include themify($themes) {
+          color: themed(countTextColor);
+      }
+        font-size: 13px;
+        padding-left: 7px;
+      }
+      &.active {
+        border-bottom: 2px solid #1da1c9;
+      } 
+      &.comment {
+        @include comment($Blue);
+        padding-left: 33px;
+        background-size: 23px;
+        background-position: 0 center;
+      }
+      &.share {
+        @include share($Blue);
+        padding-left: 42px;
+        background-size: 30px;
+        background-position: 0 center;
+      }
+      &.about {
+
+      }
+      &.music {
+
+      }
+    }
+  }
+  ._right {
+
+  }
+
+}
+
+
+.tabs_body {
+  // min-height: 100px;
+  @include themify($themes) {
+    background-color: themed(tabsBackgroundColor);
+  }
+}

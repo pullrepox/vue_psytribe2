@@ -1,0 +1,488 @@
+// Search Page
+.p-search {
+    height: 100%;
+    min-height: 100vh;
+    background: radial-gradient(circle, rgba(23,26,62,1) 43%, rgba(8,15,38,1) 100%);
+    background-size: cover;
+
+    .v-progress-circular {
+        position: absolute;
+        top: 50%;
+        margin-top: -50px;
+        left: 50%;
+        margin-left: -50px;
+        z-index: 1;
+    }
+
+    .wrap_box_results {
+        min-height: 100vh;
+        position: relative;
+        margin-top: 120px;
+        width: 100%;
+    }
+    .box_loading {
+        //min-height: 100vh;
+        //position: relative;
+        //margin-top: 120px;
+    }
+    .nothing_found_block {
+        min-height: 100vh;
+        position: relative;
+        //margin-top: 120px;
+    }
+
+    .container {
+        //position: relative;
+        &.fill-height {
+            //display: block;
+        }
+    }
+
+    .box_result {
+        //padding-bottom: 40px;
+        //height: 30%;
+
+        &.albums, &.tracks, &.artists {
+            ._head {
+                display: flex;
+                justify-content: space-between;
+                align-items: flex-end;
+                margin-bottom: 16px;
+                border-bottom: 1px solid #282C47;
+
+                > h3 {
+                    color: #f1f1f1;
+                    font-size: 25px;
+                    font-weight: 500;
+                    font-variant: small-caps;
+                    line-height: 150%;
+                    margin-bottom: 4px;
+
+                    > span {
+                        font-size: 25px;
+                        font-weight: 300;
+                        color: #5F6986;
+                        line-height: 150%;
+                    }
+                }
+
+                .view-all {
+                    display: flex;
+                    align-items: center;
+                    //border: 1px solid #3B4155;
+                    border: 1px solid #5f6986;
+                    border-radius: 120px;
+                    color: #fff;
+                    font-size: 16px;
+                    padding: 2px 5px 2px 15px;
+                    background-color: transparent;
+                    height: 32px;
+                    margin-bottom: 4px;
+                    transition: 0.25s;
+
+                    //> span {
+                    //    color: #7481A6;
+                    //    padding-left: 5px;
+                    //    font-size: 16px;
+                    //}
+
+                    &:hover {
+                        //background-color: #282C47;
+                        background-color: rgba(#fff, .1);
+                        //color: #20C4F5;
+                        //border-color: #282C47;
+
+                        > span {
+                            //color: #20C4F5;
+                        }
+                    }
+                }
+            }
+        }
+
+        &.artists {
+            margin-top: 65px;
+
+            .result {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                grid-column-gap: 20px;
+                @include max767 {
+                    grid-template-columns: repeat(1, 1fr);
+                }
+
+                .item_artist {
+                    display: flex;
+                    align-items: center;
+                    @include max767 {
+                        margin-bottom: 15px;
+                    }
+
+                    .img {
+                        width: 100px;
+                        height: 100px;
+                        border-radius: 50%;
+                        border: 2px solid #282C47;
+                        flex-shrink: 0;
+                        margin-right: 20px;
+                        overflow: hidden;
+
+                        > img {
+                            width: 100%;
+                            height: 100%;
+                        }
+                    }
+
+                    .descript {
+                        .name {
+                            color: #f1f1f1;
+                            font-size: 16px;
+                            line-height: 150%;
+                            max-width: 180px;
+                            @include truncateString;
+                            @include max767 {
+                                max-width: 100%;
+                            }
+                        }
+
+                        > span {
+                            display: flex;
+                            color: #5F6986;
+                            font-size: 22px;
+                            font-weight: 400;
+                        }
+                    }
+
+                }
+            }
+        }
+
+        &.albums {
+            margin-top: 60px;
+            .result {
+                display: grid;
+                grid-template-columns: repeat(5, 1fr);
+                column-gap: 32px;
+            }
+        }
+
+        &.tracks {
+            margin-top: 60px;
+
+            .result {
+                background-color: transparent;
+                padding: 0;
+                @include max767 {
+                    .item_track {
+                        ._left_ {
+                            .artist_name, .track_released, .track_rating, .track_bpm {
+                                display: none;
+                            }
+                        }
+
+                        ._right_ {
+                            display: none;
+                        }
+                    }
+                }
+
+            }
+        }
+    }
+
+    //&.loading {
+    //    //height: 100%;
+    //    //background-color: #031020;
+    //
+    //    .box_loading {
+    //        //height: 100%;
+    //        //min-height: 100vh;
+    //        //background-color: #031020;
+    //    }
+    //}
+
+    //&.loading, &.empty_page, &.nothing_found {
+    //    //height: 100%;
+    //    .overlay {
+    //        position: relative;
+    //        height: 100%;
+    //        min-height: 100vh;
+    //    }
+    //}
+
+
+    &.empty_page {
+        position: relative;
+
+
+        background: radial-gradient(ellipse at center top, rgba(65,46,126,1) 18%, rgba(50,31,98,1) 61%, rgba(34,16,69,1) 100%);
+        background-size: cover;
+        //transition-property: background;
+        //transition-duration: 3s;
+        //transition-delay: 0.5s;
+
+        .overlay {
+            &:after {
+                @include pseudo();
+                width: 100%;
+                height: 100%;
+                @include searchBackgroundDesign;
+                background-size: contain;
+                background-position: center center;
+                mix-blend-mode: overlay;
+                bottom: 0;
+                left: 0;
+            }
+        }
+
+        &.nothing_found {
+            height: 100%;
+        }
+    }
+
+    &.nothing_found {
+        .fill-height {
+            display: block;
+        }
+        .search_nothing_found {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 67px;
+            font-weight: 500;
+            color: #7481A6;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: auto;
+            position: relative;
+            top: 405px;
+            height: 70px;
+
+            &:after {
+                @include pseudo();
+                width: 900px;
+                height: 65px;
+                background-image: url("#{$imagePath}/shadows/search_nothing_found.png");
+                background-size: contain;
+                background-position: center 0;
+                top: 100%;
+            }
+        }
+    }
+}
+
+
+// Search Details Page
+.p-search-details {
+    height: 100%;
+    min-height: 100vh;
+    background: radial-gradient(circle, rgba(23,26,62,1) 43%, rgba(8,15,38,1) 100%);
+    background-size: cover;
+
+
+    .head_content {
+        display: flex;
+        align-items: center;
+        font-size: 50px;
+        color: #f1f1f1;
+        font-weight: 500;
+        line-height: 59px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+
+        > a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: rgba(#fff, 0.05);
+            margin-right: 20px;
+            transition: 0.25s;
+
+            > span {
+                color: #7481A6;
+                font-size: 34px;
+            }
+
+            &:hover {
+                background: rgba(#fff, 0.1);
+
+                > span {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .artists_list {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-gap: 25px;
+        margin-top: 50px;
+        margin-bottom: 150px;
+        position: relative;
+
+        > a {
+            display: flex;
+            align-items: center;
+
+            .img {
+                width: 96px;
+                height: 96px;
+                border-radius: 50%;
+                border: 1px solid #5F6986;
+                flex-shrink: 0;
+                margin-right: 20px;
+                overflow: hidden;
+
+                > img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .descript {
+                .name {
+                    color: #f1f1f1;
+                    font-size: 17px;
+                    line-height: 150%;
+                    max-width: 180px;
+                    @include truncateString;
+                }
+
+                > span {
+                    display: flex;
+                    color: #5F6986;
+                    font-size: 22px;
+                    font-weight: 400;
+                }
+            }
+        }
+
+        .v-progress-circular {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            margin-left: -50px;
+        }
+    }
+
+    .albums_list {
+        background-color: transparent;
+    }
+
+    .track_list {
+        background-color: transparent;
+        position: relative;
+    }
+
+    .head_page {
+        display: flex;
+        align-items: flex-end;
+        height: 124px;
+        background-color: #02161D;
+        padding: 0 30px 50px 30px;
+
+        .btn_back {
+            width: 48px;
+            height: 48px;
+            border-radius: 5px;
+            background-color: #28363f;
+            margin-right: 20px;
+            position: relative;
+
+            > span {
+                @include coverCenter;
+                font-size: 42px;
+                color: #20c4f5;
+            }
+        }
+
+        .name_page {
+            color: #f1f1f1;
+            font-weight: 500;
+            font-size: 57px;
+            margin-right: 20px;
+        }
+
+        .who_search {
+            font-size: 46px;
+            color: #e420f5;
+            font-weight: 500;
+            margin-right: 20px;
+        }
+
+        .query_search {
+            font-size: 46px;
+            color: #7120f5;
+            font-weight: 500;
+            margin-right: 20px;
+        }
+    }
+}
+
+
+.box_input_search {
+    position: relative;
+    top: 100px;
+    width: 735px;
+    height: 40px;
+    display: flex;
+    z-index: 10;
+    border-bottom: 1px solid rgba(#ffffff, .5);
+    margin: 0 auto;
+
+    &:after {
+        @include pseudo;
+        width: 30px;
+        height: 100%;
+        left: 15px;
+        @include searchInputIcon('dcdcdc');
+        background-position: 0 center;
+        background-size: contain;
+    }
+
+
+    > input {
+        width: 100%;
+        height: 100%;
+        padding: 0 15px 0 60px;
+        font-size: 30px;
+        font-weight: 300;
+        color: #dcdcdc;
+
+        &::placeholder {
+            color: #dcdcdc;
+            opacity: 1;
+        }
+    }
+
+    .clear_search {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        width: 15px;
+        height: 100%;
+        background-position: center;
+        background-size: contain;
+        @include closeX('dcdcdc');
+    }
+    .run_search {
+        position: absolute;
+        top: 0;
+        right: 15px;
+        width: 15px;
+        height: 100%;
+        background-position: center;
+        background-size: contain;
+        @include rightArrowLight('dcdcdc');
+        &.active {
+            @include rightArrowLight('ffffff');
+        }
+    }
+
+    &:hover, &.focus {
+        border-bottom: 1px solid rgba(#dcdcdc, .8);
+    }
+}

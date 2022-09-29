@@ -1,0 +1,75 @@
+.wrap_carousel {
+    .v-carousel {
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+    //.v-window__prev {
+    //    top: 90%;
+    //    left: 150px;
+    //    background-color: transparent;
+    //}
+    //.v-window__next {
+    //    top: 90%;
+    //    left: 225px;
+    //    right: auto;
+    //    background-color: transparent;
+    //}
+}
+
+.slide_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    padding: 20px 30px;
+    width: 440px;
+
+    .event_info {
+        .slide_name {
+            font-family: 'Montserrat', sans-serif;
+            color: #f1f1f1;
+            font-size: 42px;
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .location {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 13px;
+        }
+
+        .dates {
+            font-size: 16px;
+            color: #fff;
+            margin-bottom: 13px;
+        }
+
+        .description {
+            font-family: 'Montserrat', sans-serif;
+            color: #f1f1f1;
+            font-size: 15px;
+        }
+    }
+
+    .slide_navigation {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 20px;
+
+        .current_of_length {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 15px;
+            color: #5F6986;
+        }
+
+        .change_slide {
+            width: 15px;
+            height: 15px;
+            border: 1px dashed #7481A6;
+        }
+    }
+
+}

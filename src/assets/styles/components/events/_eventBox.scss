@@ -1,0 +1,77 @@
+.event_box {
+  background-color: $bgWhite;
+  .public_info {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid $bgGray;
+    > div {
+      color: $blue;
+      font-size: 17px;
+      font-weight: 500;
+      > span {
+        color: $black;
+      }
+    }
+  }
+  .info_event {
+    display: flex;
+    padding: 20px;
+    justify-content: space-between;
+    ._left {
+      display: flex;
+
+      .img_wrap {
+        max-width: 160px;
+        height: 100px;
+        > img {
+          height: 100%; // TODO: TEMP DELETE
+        }
+      }
+      .info_wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 5px 0 5px 23px;
+        .name {
+          font-size: 20px;
+          font-weight: 500;
+          color: $blue;
+          white-space: nowrap;
+        }
+        .location {
+          font-size: 15px;
+          color: $gray20;
+          white-space: nowrap;
+        }
+        .clock {
+
+        }
+      }
+    }
+    ._right {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      margin-right: 15px;
+      .message {
+        @include hexagon(135px, 40px, $blue, $white, 17px, 500);
+        color: $white;
+      }
+      .tickets {
+        @include hexagon(130px, 40px, $blue, $white, 17px, 500);
+        color: $white;
+      }
+      .price {
+        font-size: 32px;
+        color: $gray20;
+        margin-bottom: 20px;
+      }
+    }
+
+  }
+  &.issue_right {
+
+  }
+}

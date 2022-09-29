@@ -1,0 +1,147 @@
+
+.v-navigation-drawer {
+  z-index: 999;
+  height: auto;
+  bottom: 64px !important;
+  max-height: 55% !important;
+  .wrap_drawer {
+    display: flex;
+    flex-direction: column;
+
+    .wrap_drawer_player {
+      padding-top: 15px;
+      width: 100%;
+      height: 120px;
+      background-color: #282C47;
+      .action_buttons {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 55px;
+        > button {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          &.prev_track {
+            @include prevTrack('f8f8f8');
+            background-position: center center;
+            margin-right: 10px;
+          }
+          &.next_track {
+            @include nextTrack('f8f8f8');
+            background-position: center center;
+            margin-left: 10px;
+          }
+        }
+        .toogle_play {
+          width: 50px;
+          height: 50px;
+          background-color: #20C4F5;
+          border-radius: 50%;
+          overflow: hidden;
+          > button {
+            width: 100%;
+            height: 100%;
+            background-position: center;
+            &.play {
+              @include playerPlay('ffffff');
+              background-size: 12px;
+              background-position: 21px center;
+            }
+            &.pause {
+              @include playerPause('ffffff');
+            }
+          }
+
+        }
+      }
+      .track_progress {
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        padding: 0 15px;
+        > span {
+          font-size: 17px;
+          color: #fff;
+        }
+        .v-input__slider {
+          .v-input__control {
+            flex-direction: row;
+            flex-wrap: nowrap;
+            cursor: pointer;
+          }
+          .v-input__slot {
+            margin: 0;
+            .v-slider__track-container {
+              display: flex;
+              align-items: center;
+
+              .v-slider__track-background {
+                height: 1px;
+              }
+              .v-slider__track-fill {
+                height: 3px;
+              }
+            }
+            .v-slider__thumb  {
+              width: 19px;
+              height: 19px;
+              &:before {
+                content: none;
+                left: -9px;
+                top: -9px;
+                transform: scale(1.2) !important;
+              }
+              &:after {
+                content: none;
+              }
+            }
+          }
+        }
+      }
+    }
+    .wrap_drawer_list {
+      > button {
+        display: flex;
+        align-items: center;
+        padding-left: 63px;
+        width: 100%;
+        height: 52px;
+        border-bottom: 1px solid #282C47;
+        font-size: 16px;
+        color: #8591B1;
+        background-position: 15px center;
+        &.favorite {
+          @include heartTransparent();
+          &.active {
+            @include heartFilled();
+          }
+        }
+        &.share {
+          //@include shareLink('ffffff');
+          @include shareTrack($White);
+          background-size: 20px;
+        }
+        &.add_to_playlist {
+          @include addTrackToPlaylist;
+          background-size: 22px;
+        }
+        //&.add_to_cart {
+        //  @include addTrackToCart;
+        //  background-size: 25px;
+        //}
+      }
+    }
+    .close_drawer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 61px;
+      color: #8591B1;
+      font-size: 16px;
+      font-weight: 500;
+    }
+  }
+}

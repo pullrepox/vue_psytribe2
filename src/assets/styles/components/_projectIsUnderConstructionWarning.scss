@@ -1,0 +1,49 @@
+.project_is_under_construction_warning {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background: #F5E020;
+  font-size: 15px;
+  padding-right: 16px;
+  padding-left: 16px;
+  margin-top: 60px;
+
+
+  .content {
+    color: #22293A;
+    text-align: center;
+
+    .warning_triangle {
+      display: inline-flex;
+      width: 27px;
+      height: 28px;
+      margin-right: 10px;
+      vertical-align: middle;
+      @include warningTriangle();
+    }
+
+    a.faq-link {
+      color: #6420f5;
+      text-decoration: underline;
+      margin-left: 4px;
+    }
+
+    a.understand {
+      color: #6420f5;
+      text-decoration: underline;
+      margin-left: 8px;
+    }
+  }
+}
+
+@include max610 {
+  .project_is_under_construction_warning .content {
+    .warning_triangle {
+      display: none;
+    }
+
+    a.understand,
+    .first-line {
+      display: block;
+    }
+  }
+}

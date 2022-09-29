@@ -1,0 +1,275 @@
+.page_form_layout {
+  background-image: url('#{$imagePath}/shadows/auth_shadow.svg');
+  background-position: 90% 0;
+  margin: 0;
+  padding: 0 0 300px 0;
+  height: 100%;
+  @include max479 {
+    padding-bottom: 30px;
+  }
+  .wrap_form_layout {
+    position: relative;
+    max-width: 360px;
+    margin: 0 auto;
+    padding-top: 80px;
+    &.recovery_password {
+      max-width: 580px;
+      padding-top: 120px;
+      .form {
+        max-width: 360px;
+        margin: 0 auto;
+      }
+    }
+    &.account_recovery {
+      padding-top: 190px;
+      display: flex;
+      flex-direction: column;
+    }
+    > h2 {
+      text-align: center;
+      color: #282C47;
+      font-weight: 700;
+      margin-bottom: 10px;
+      &.join_the_network {
+        font-size: 41px;
+      }
+      &.profile_basics {
+        font-size: 55px;
+      }
+      &.login {
+        font-size: 41px;
+      }
+      &.account_recovery {
+        font-size: 40px;
+        line-height: 49px;
+        margin-bottom: 30px;
+        > span {
+          display: flex;
+          justify-content: center;
+          font-size: 16px;
+          line-height: 20px;
+          color: #8591B1;
+          font-weight: 400;
+          padding-top: 5px;
+        }
+      }
+      &.create_new_password {
+        font-size: 60px;
+      }
+    }
+    .facebook_connect {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Montserrat', sans-serif;
+      width: 100%;
+      height: 55px;
+      background: #4E6297;
+      border-radius: 100px;
+      color: #fff;
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      cursor: pointer;
+      @include unSelect;
+
+      .facebook_icon {
+        display: flex;
+        width: 22px;
+        height: 20px;
+        @include facebookSquare;
+        margin-right: 15px;
+      }
+    }
+    .or {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      position: relative;
+      &:before {
+        @include pseudo;
+        top: 50%;
+        left: 0;
+        width: 40%;
+        height: 1px;
+        background-color: #282C47;
+      }
+      > span {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 20px;
+        color: #dbdbdb;
+      }
+      &:after {
+        @include pseudo;
+        top: 50%;
+        right: 0;
+        width: 40%;
+        height: 1px;
+        background-color: #282C47;
+      }
+    }
+    .form {
+      margin-bottom: 10px;
+      > div {
+
+        label {
+          display: flex;
+          font-size: 16px;
+          line-height: 20px;
+          margin-bottom: 4px;
+          color: #7481A6;
+        }
+
+        input {
+          width: 100%;
+          height: 52px;
+          padding: 0 16px;
+          border: 1px solid #282C47;
+          background-color: #040A18;
+          border-radius: 5px;
+          color: #dcdcdc;
+          background-repeat: no-repeat;
+          background-size: contain;
+        }
+        .hint_message_error {
+          display: flex;
+          flex-direction: column;
+          font-size: 16px;
+          color: #E84D4D;
+        }
+        &:not(:last-child) {
+          margin-bottom: 11px;
+        }
+
+        &.password {
+          > div {
+            display: flex;
+            justify-content: space-between;
+
+            .show_password {
+              color: #20C4F5;
+            }
+          }
+        }
+        &.field_error {
+          > input {
+            border: 1px solid #E94E4E;
+          }
+        }
+      }
+    }
+    .password_complexity {
+      margin-bottom: 32px;
+    }
+    .i_am {
+      margin-bottom: 34px;
+      .i_am_title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 18px;
+        color: #dbdbdb;
+        margin-bottom: 11px;
+      }
+      .wrap_checkbox {
+        display: grid;
+        grid-template-columns: 1fr 1fr 60px;
+        grid-gap: 10px;
+
+        .item_checkbox {
+          flex-basis: 33%;
+          margin-bottom: 16px;
+
+          > label {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+    .message_error {
+      font-size: 16px;
+      color: #E84D4D;
+      margin: 10px 0;
+      > div {
+        display: flex;
+      }
+    }
+    .sign_up, .save_profile_basics, .log_in, .reset {
+      width: 100%;
+      height: 55px;
+      margin-bottom: 20px;
+      margin-top: 30px;
+    }
+    .cancel_account_recovery {
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: #20C4F5;
+    }
+    .response_account_recovery {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      > span {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        font-size: 16px;
+        color: #f1f1f1;
+      }
+      > button {
+        width: 100%;
+        height: 55px;
+        margin-bottom: 20px;
+        margin-top: 30px;
+      }
+      .login {
+        font-size: 14px;
+        font-weight: 500;
+        color: #20C4F5;
+      }
+    }
+
+    // registration
+    .already_account {
+      text-align: center;
+      font-size: 16px;
+      color: #aaa;
+      > a {
+        color: #20C4F5;
+        font-weight: 500;
+      }
+    }
+
+    // Login
+    .recovery_password {
+      border-bottom: 1px solid #282C47;
+      padding-bottom: 10px;
+      text-align: center;
+      margin-bottom: 20px;
+      > a {
+        font-size: 16px;
+        color: #20C4F5;
+      }
+    }
+    .new_account {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 55px;
+      margin-bottom: 20px;
+      background: rgba(100, 193, 69, .82);
+      border-radius: 50px;
+    }
+    > .v-progress-circular {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin-top: -50px;
+      margin-left: -50px;
+    }
+  }
+}

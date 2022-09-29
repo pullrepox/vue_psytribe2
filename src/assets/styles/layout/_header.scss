@@ -1,0 +1,463 @@
+$themes: (dark: (
+        headerBackground: #1A1F34,
+        btnLoginColor: #fff,
+        userNameColor: #e5e5e5,
+        navActive: #28363F
+),
+        light: (
+                headerBackground: #f1f1f1,
+                btnLoginColor: #0d1618,
+                userNameColor: #0d1618,
+                navActive: #28363F
+        ));
+
+
+header {
+  width: 100%;
+  height: 60px;
+  z-index: 2;
+  background-color: rgba(#1A1F34, .0);
+  position: absolute;
+
+  @include themify($themes) {
+    //background-color: themed(headerBackground);
+  }
+
+  > .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    width: 100%;
+
+    > .mobile_input_search {
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: calc(100% - 40px);
+      padding: 10px 20px;
+      background-color: #fff;
+      border-radius: 53px;
+      &:after {
+        @include pseudo;
+        display: flex;
+        left: 0;
+        top: 0;
+        width: 40px;
+        height: 100%;
+        @include mobileSearch();
+        background-position: center;
+      }
+
+      > input {
+        width: 90%;
+        height: 100%;
+        padding-left: 20px;
+      }
+      .close {
+        width: 22px;
+        height: 22px;
+        border-radius: 50%;
+        @include mobileCloseSearch();
+        background-position: center;
+      }
+    }
+  }
+
+  .left_box {
+    display: flex;
+    height: inherit;
+    align-items: center;
+    flex-basis: 20%;
+    flex-shrink: 0;
+    @include max479 {
+      flex-basis: auto;
+    }
+
+    .logo {
+      display: flex;
+      height: 100%;
+      flex-shrink: 0;
+      width: 250px;
+      cursor: pointer;
+      @include max479 {
+        width: 60px;
+      }
+    }
+  }
+
+  .right_box {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-basis: 80%;
+
+    //.search {
+    //  display: flex;
+    //  width: 350px;
+    //  height: 40px;
+    //  border-radius: 100px;
+    //  background-color: #031020;
+    //  position: relative;
+    //  margin: 0 32px;
+    //  transition: .25s;
+    //  @include max999 {
+    //    display: none;
+    //  }
+    //
+    //  .material-icons {
+    //    display: flex;
+    //    align-items: center;
+    //    justify-content: center;
+    //    width: 30px;
+    //    color: #5F6986;
+    //    font-size: 22px;
+    //    margin-left: 15px;
+    //  }
+    //
+    //  > input {
+    //    width: 100%;
+    //    height: 100%;
+    //    background-color: transparent !important;
+    //    border: none;
+    //    padding: 0 15px 0 5px;
+    //    font-size: 14px;
+    //    color: #fff;
+    //
+    //    &::placeholder {
+    //      color: #5F6986;
+    //      opacity: 1;
+    //    }
+    //  }
+    //
+    //  .close {
+    //    position: absolute;
+    //    top: 0;
+    //    right: 15px;
+    //    width: 11px;
+    //    height: 100%;
+    //    @include close('fff');
+    //    background-position: center;
+    //    background-size: contain;
+    //  }
+    //
+    //  &:hover {
+    //    .material-icons {
+    //      color: #7481A6;
+    //    }
+    //
+    //    > input {
+    //      &::placeholder {
+    //        color: #7481A6;
+    //        opacity: 1;
+    //      }
+    //
+    //      &:focus {
+    //        &::placeholder {
+    //          color: #5F6986;
+    //        }
+    //      }
+    //    }
+    //  }
+    //
+    //  &.active {
+    //    width: 80%;
+    //  }
+    //}
+
+    nav {
+      display: flex;
+      align-items: center;
+      height: 100%;
+
+
+      ul {
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+        > li {
+          display: flex;
+          height: 100%;
+          align-items: center;
+
+          .head_nav {
+            display: flex;
+            align-items: center;
+            margin-right: 20px;
+
+            > a {
+              display: flex;
+              align-items: center;
+              height: 100%;
+              font-size: 17px;
+              line-height: 20px;
+              color: #F1F1F1;
+              margin: 0 10px;
+              position: relative;
+
+              &.active {
+                &:after {
+                  @include pseudo;
+                  width: 30px;
+                  height: 3px;
+                  background-color: #20C4F5;
+                  bottom: 0;
+                  padding: 0 15px;
+                  left: 50%;
+                  transform: translateX(-50%);
+                }
+              }
+            }
+          }
+
+          > a {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            background-position: left center;
+            @include themify($themes) {
+              color: themed(userNameColor);
+            }
+
+            &.search {
+              width: 40px;
+              height: 40px;
+              border-radius: 50%;
+              background-color: rgba(#fff, .1);
+              @include searchInputIcon('8591B1');
+              background-position: center center;
+              &:hover {
+                @include searchInputIcon('ffffff');
+              }
+            }
+            &.login {
+              justify-content: center;
+              width: 100px;
+              height: 32px;
+              padding: 0;
+              margin: 0;
+              border-radius: 44px;
+              border: 1px solid #282C47;
+              font-size: 16px;
+              font-weight: 500;
+              color: #dcdcdc;
+              transition: 0.27s;
+
+              &:hover {
+                background-color: #282C47;
+              }
+            }
+          }
+
+          > div {
+            height: 100%;
+          }
+        }
+
+        &.auth_nav {
+          > li {
+            display: flex;
+            align-items: center;
+            height: 100%;
+          }
+
+          a {
+            height: inherit;
+            font-size: 20px;
+            font-weight: 500;
+            padding: 0 15px;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+
+            &.active {
+              @include themify($themes) {
+                background-color: themed(navActive);
+              }
+            }
+          }
+        }
+
+        &.right_nav {
+          > li {
+            &:not(:last-child) {
+              margin-right: 16px;
+            }
+            &.upload_music_event {
+              @include max767 {
+                display: none;
+              }
+            }
+
+            .upload {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              width: 40px;
+              height: 40px;
+              cursor: pointer;
+              box-sizing: content-box;
+              border-radius: 50%;
+              //background-color: #282C47;
+              background-color: rgba(#fff, .1);
+
+
+              > span {
+                font-size: 27px;
+                color: #7481A6;
+
+                &[aria-expanded="true"] {
+                  color: #dcdcdc;
+
+                  &:hover {
+                    color: #fff !important;
+                  }
+                }
+              }
+
+              &:hover {
+                //background-color: rgba(#5F6986, .2);
+
+                > span {
+                  color: #fff;
+
+                  &[aria-expanded="true"] {
+                    color: #dcdcdc;
+                  }
+                }
+              }
+            }
+
+            > a {
+              &.alerts {
+                margin-right: 50px;
+                font-size: 17px;
+              }
+            }
+
+            // USER MENU
+            .user {
+
+              display: flex;
+              align-items: center;
+              width: 40px;
+              height: 40px;
+              border: 2px solid rgba(#fff, .1);
+              //border: 2px solid #282C47;
+              border-radius: 50%;
+              overflow: hidden;
+
+              > img {
+                object-fit: cover;
+                width: 100%;
+                height: 100%;
+              }
+
+              &:hover {
+                border-color: rgba(#fff, .6);
+              }
+
+
+              &[aria-expanded="true"] {
+                border-color: rgba(#fff, .6);
+              }
+              .default_user_avatar {
+                width: 100%;
+                height: 100%;
+                background-image: url('#{$imagePath}default_ava.png');
+                background-size: cover;
+                background-position: center;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    .mobile_search {
+      display: none;
+      @include max767 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-left: 15px;
+        background-color: #282C47;
+        @include mobileSearch();
+        background-position: center;
+      }
+    }
+
+    .mobile_nav {
+      display: none;
+      @include max767 {
+        display: flex;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin-left: 15px;
+        @include mobileNav();
+        background-position: center;
+      }
+    }
+  }
+}
+
+// header settings
+.library-page {
+  padding-top: 64px;
+}
+.private_profile .head_profile {
+  padding-top: 92px;
+}
+.artist_profile .artist_profile_head {
+  padding-top: 104px;
+}
+.user_profile .head_profile {
+  padding-top: 92px;
+  @include max767 {
+    padding-top: 72px;
+  }
+}
+.p-album-details {
+  padding-top: 62px;
+}
+.p-faq, .p-changelog, .p-suggestions, .p-feature-suggestions, .p-reports, .p-bug-reports, .p-verifications, .admin-settings {
+  padding-top: 60px;
+}
+.upload-music {
+  padding-top: 72px;
+}
+.p-settings {
+  padding-top: 72px;
+}
+.p-follow {
+  padding-top: 72px;
+}
+
+// search
+.p-search-details {
+  .block_search_results {
+    padding-top: 130px;
+  }
+}
+
+
+// mobile
+.p_albums_list {
+  padding-top: 60px;
+}
+
+
+// events
+.page_event_details {
+  .head_event {
+    padding-top: 72px;
+  }
+}

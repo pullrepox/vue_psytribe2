@@ -1,0 +1,29 @@
+ /* width */
+ ::-webkit-scrollbar {
+     width: 3px;
+     background: transparent;
+ }
+
+
+ ::-webkit-scrollbar-button {
+     // width: 10px;
+
+ }
+
+ /* Handle */
+ ::-webkit-scrollbar-thumb {
+     background: $blue;
+ }
+
+ /* Track */
+ ::-webkit-scrollbar-track {}
+
+
+ ::-webkit-scrollbar-track-piece {}
+
+ ::-webkit-scrollbar-corner {}
+
+ ::-webkit-resizer {}
+
+ /* Handle on hover */
+ ::-webkit-scrollbar-thumb:hover {}

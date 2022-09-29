@@ -1,0 +1,279 @@
+.theme_light, .theme_dark {
+    display: inline-flex;
+    margin-left: 100px;
+}
+
+.p-settings {
+    > .container {
+        display: flex;
+        margin-top: 30px;
+        aside {
+            border-radius: 8px;
+            width: 205px;
+            margin-right: 30px;
+            .user_settings {
+                .nav_title {
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: #8591B1;
+                    line-height: 1.5;
+                    padding-left: 20px;
+                    margin-bottom: 1px;
+                }
+                > ul {
+                    > li {
+                        > a {
+                            display: flex;
+                            font-size: 16px;
+                            line-height: 1;
+                            color: #dcdcdc;
+                            padding: 7px 20px;
+                            &.active {
+                                background-color: rgba(#A5BAEC, .1);
+                                box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+                                border-radius: 6px;
+                                color: #20C4F5;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        main {
+            flex: 1;
+            height: calc(100vh - 170px);
+        }
+    }
+    section.wrap_s_block {
+        display: flex;
+        flex-direction: column;
+        padding: 10px 20px;
+        background-color: #10182B;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        .password_box {
+            width: 100%;
+            border-bottom: 1px solid #282C47;
+        }
+        .email_box {
+            margin-top: 10px;
+        }
+    }
+    .name_section {
+        color: #5F6986;
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 9px;
+    }
+    .body_ {
+        // Security
+        &.change_password {
+            max-width: 310px;
+            .wrap_input + .wrap_input {
+                margin-top: 19px;
+            }
+
+            .password_complexity {
+                padding: 0;
+                margin-bottom: 18px;
+                margin-top: 16px;
+
+                .label {
+                    font-size: 14px;
+                    color: #aaaaaa;
+                    margin-bottom: 10px;
+                }
+
+                .wrap_must_symbols {
+                    height: 24px;
+
+                    .item_ {
+                        background-image: url(assets/img/security/check.svg);
+                        margin-right: 12px;
+
+                        &.active {
+                            background-image: url(assets/img/security/check-green.svg);
+                        }
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+
+                        font-size: 12px;
+                        padding-left: 32px;
+                    }
+                }
+            }
+
+            .btn_change_pass.v-btn {
+                text-transform: none !important;
+                font-family: "Roboto", sans-serif;
+                font-weight: normal !important;
+                cursor: pointer !important;
+                letter-spacing: normal !important;
+
+                width: 100%;
+                height: 50px;
+                border-radius: 28px;
+                font-size: 16px;
+                margin-bottom: 32px;
+                background-color: #323659;
+                color: #fff;
+
+                &--disabled {
+                    background: rgba(227, 227, 227, 0.12) !important;
+                    border: none !important;
+
+                    .v-btn__content {
+                        font-family: Roboto, sans-serif;
+                        font-style: normal;
+                        font-weight: 500;
+                        font-size: 18px;
+                        line-height: 20px;
+                        text-align: center;
+                        letter-spacing: 0.03em;
+                        color: #E6E1E5;
+                        opacity: 0.38;
+                    }
+
+                }
+            }
+        }
+        &.change_email {
+            .this_email {
+                font-size: 16px;
+                color: #dcdcdc;
+                margin-bottom: 8px;
+
+                > span {
+                    color: #7d7d7d;
+                }
+                > button {
+                    margin-right: 24px;
+                    color: #20C4F5;
+                    font-size: 17px;
+                    font-weight: 400;
+                    margin-left: 16px;
+                }
+            }
+            .resend_confirm_email {
+                font-size: 14px;
+                color: #20C4F5;
+                font-weight: 500;
+                margin-bottom: 10px;
+            }
+        }
+        &.membership {
+            .box_current_plan {
+                border-bottom: 1px solid #282C47;
+                padding-bottom: 32px;
+                .current_plan {
+                    display: flex;
+                    line-height: 24px;
+                    font-size: 16px;
+                    font-weight: 500;
+                    .name {
+                        color: #20C4F5;
+                        padding-right: 6px;
+                    }
+                    .price {
+                        color: #7481A6;
+                        font-weight: 400;
+                    }
+                }
+                .next_bill {
+                    color: #aaa;
+                    margin-bottom: 15px;
+                    > .date {
+                        color: #7481A6;
+                    }
+                }
+                button.level_up {
+                    display: none;
+                }
+                &.free {
+                    .current_plan {
+                        .name {
+                            color: #7481A6;
+                            > span {
+                                display: flex;
+                                color: #aaa;
+                                font-weight: 400;
+                            }
+                        }
+                    }
+                    button.change_plan {
+                        display: none;
+                    }
+                    button.level_up {
+                        display: flex;
+                        margin-top: 16px;
+                    }
+                }
+            }
+            .box_payment_method {
+                .name_section {
+                    margin-top: 10px;
+                    margin-bottom: 16px;
+                }
+                .credit_cards {
+                    display: flex;
+                    padding-bottom: 60px;
+                    > div {
+                        width: 213px;
+                        height: 123px;
+                        border-radius: 2.6px;
+                        &:not(:last-child) {
+                            margin-right: 22px;
+                        }
+                    }
+                    .item_card {
+                        background-color: #282C47;
+                    }
+                    .add_credit_card {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        border: 1px solid #282C47;
+                        color: #5F6986;
+                        font-size: 16px;
+                        cursor: pointer;
+                        @include unSelect;
+                        ._icon {
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            width: 40px;
+                            height: 40px;
+                            border-radius: 50%;
+                            background-color: #282C47;
+                            margin-right: 9px;
+                            > span {
+                                font-size: 34px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Notifications, Privacy, Wallet
+        &.notifications, &.privacy, &.wallet {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 465px; // temp
+            h4 {
+                color: #5F6986;
+                font-size: 30px;
+                //width: 210px;
+            }
+        }
+
+    }
+}
+
+
+
+

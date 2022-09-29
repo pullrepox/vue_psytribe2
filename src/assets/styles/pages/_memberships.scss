@@ -1,0 +1,136 @@
+.p-memberships {
+  height: 100%;
+  background-image: url('#{$imagePath}/shadows/full_page_shadow.png');
+  background-repeat: no-repeat;
+  background-position: 90% -50px;
+  > .container {
+    height: calc(100vh - 170px);
+  }
+  .memberships_heading {
+    padding-top: 64px;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    > h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 40px;
+      color: #8591B1;
+      line-height: 49px;
+      margin-bottom: 8px;
+    }
+    > h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      color: #8591B1;
+      line-height: 20px;
+    }
+  }
+  .wrap_memberships {
+    display: flex;
+    justify-content: center;
+    background-image: url('#{$imagePath}/shadows/memberships_shadow.png');
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    padding-bottom: 70px;
+    .item_membership {
+      border-radius: 16px;
+      width: 200px;
+      overflow: hidden;
+      height: 445px;
+      position: relative;
+      padding: 1px;
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      .membership_title {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: #fff;
+        margin-bottom: 20px;
+        min-height: 70px;
+
+        > span {
+          display: flex;
+          font-size: 14px;
+          font-weight: 400;
+          color: #8591B1;
+          padding-top: 7px;
+          line-height: 16px;
+        }
+      }
+      .price {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 24px;
+        font-weight: 600;
+        color: #20C4F5;
+        margin-bottom: 20px;
+        > span {
+          display: flex;
+          color: #8591B1;
+          font-size: 14px;
+          font-weight: 400;
+          line-height: 16px;
+        }
+      }
+      .description {
+        > span {
+          display: flex;
+          color: #DCDCDC;
+          font-size: 14px;
+          font-weight: 700;
+          line-height: 16px;
+          margin-bottom: 16px;
+        }
+      }
+      .membership_action {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: transparent;
+        padding: 20px;
+        > button {
+
+
+        }
+      }
+
+      .inside {
+        width: calc(100% - 0px);
+        height: calc(100% - 0px);
+        background-color: #282C47;
+        border-radius: 17px;
+        padding: 20px 16px;
+      }
+      &.free {
+        &.activePlan {
+          .membership_action {
+            &:after {
+              display: flex;
+              justify-content: center;
+              content: 'Current Plan';
+              margin-bottom: 7px;
+            }
+          }
+        }
+      }
+      &.premium, &.pro {
+        &.activePlan {
+          background: linear-gradient(to left, #20A8F5, #FF0099);
+        }
+      }
+      &.premium {
+
+      }
+      &.pro {
+        .membership_action {
+
+        }
+      }
+
+    }
+  }
+}

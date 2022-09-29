@@ -1,0 +1,22 @@
+.search {
+
+}
+.v-list.search {
+  .v-list-item {
+    font-size: 18px;
+    color: #dbdbdb !important;
+    position: relative;
+    > span {
+      color: #5F6986;
+      margin-right: 20px;
+    }
+    .delete_search_text {
+      position: absolute;
+      right: 20px;
+      height: 21px;
+      > span {
+        font-size: 20px;
+      }
+    }
+  }
+}

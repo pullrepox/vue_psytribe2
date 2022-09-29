@@ -1,0 +1,512 @@
+$themes: (dark: (filterBtnColor: #dcdcdc,
+        newCommmentBgc: #333,
+        commmentColor: #f6f6f6,
+        commentBgc: #3f4141,
+        commentColor: #f6f6f6,
+        commentNameColor: #1da1c9,
+        agreeColor: #20c4f5,
+        replyColor: #20c4f5,
+        ageColor: #e5e5e5,
+        countRepliesColor: #1da1c9),
+        light: (filterBtnColor: #dcdcdc,
+                newCommmentBgc: #333,
+                commmentColor: #f6f6f6,
+                commentBgc: #3f4141,
+                commentColor: #f6f6f6,
+                commentNameColor: #1da1c9,
+                agreeColor: #20c4f5,
+                replyColor: #20c4f5,
+                ageColor: #e5e5e5,
+                countRepliesColor: #1da1c9));
+
+
+.row_ {
+  display: flex;
+  padding-top: 12px;
+
+  .comment_filter {
+    display: flex;
+    margin-right: 100px;
+    margin-left: 50px;
+
+    > button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      padding: 3px 15px;
+      background-color: transparent;
+      border: none;
+      height: 31px;
+      border-radius: 5px;
+
+      @include themify($themes) {
+        color: themed(filterBtnColor);
+      }
+
+      &.active {
+        background-color: rgba(74, 74, 74, 0.25);
+      }
+    }
+  }
+
+  .new_comment {
+    border: 1px solid #1da1c9;
+    background-color: #333;
+    border-radius: 5px;
+    overflow: hidden;
+    width: 70%;
+    min-height: 65px;
+    padding: 23px 22px;
+
+    @include themify($themes) {
+      background-color: themed(newCommmentBgc);
+    }
+
+    > textarea {
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+
+      @include themify($themes) {
+        color: themed(commmentColor);
+      }
+    }
+  }
+}
+
+.wrap_comment {
+
+
+}
+
+.item_comment,
+.reply_comment {
+  display: flex;
+  padding: 25px;
+  padding-bottom: 0;
+
+  .ava {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 5px;
+
+    > img {
+      width: 100%;
+    }
+  }
+
+  .comment {
+    .body_comment {
+      font-size: 13px;
+      padding: 5px 21px 21px 26px;
+      display: flex;
+      border-radius: 5px;
+
+      @include themify($themes) {
+        background-color: themed(commentBgc);
+        color: themed(commentColor);
+      }
+
+      .name {
+        display: flex;
+        font-weight: 800;
+
+        @include themify($themes) {
+          color: themed(commentNameColor);
+        }
+      }
+
+      .text {
+        line-height: 1.7;
+
+        @include themify($themes) {
+          color: themed(commentColor);
+        }
+      }
+
+      .btn_dropdown {
+        width: 50px;
+        height: 50px;
+        color: $blue;
+        font-size: 16px;
+        flex-shrink: 0;
+        text-align: center;
+        position: relative;
+        top: 5px;
+        right: -15px;
+        cursor: pointer;
+      }
+    }
+
+    .row_buttons {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 5px;
+      padding-left: 20px;
+
+      .left_ {
+        > button {
+          font-size: 14px;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          margin-right: 20px;
+
+          &.agree {
+            @include themify($themes) {
+              color: themed(agreeColor);
+            }
+          }
+
+          &.reply {
+            @include themify($themes) {
+              color: themed(replyColor);
+            }
+          }
+        }
+
+        .age {
+          font-size: 13px;
+
+          @include themify($themes) {
+            color: themed(ageColor);
+          }
+        }
+
+      }
+
+      .right_ {
+        .like {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border: none;
+          background-color: transparent;
+          width: 80px;
+          height: 20px;
+          @include buttonHexagon('333333', '20c4f5', 1);
+          background-size: contain;
+          position: relative;
+          top: -20px;
+          left: 0;
+          color: #fff;
+
+          &:before {
+            @include pseudo;
+            @include thumbUp('FDFFFF');
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.count_replies {
+  display: flex;
+  align-items: center;
+  height: 35px;
+  margin-left: 100px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 10px;
+  @include themify($themes) {
+    color: themed(countRepliesColor);
+  }
+  @include replyComment('f1f1f1');
+  padding-left: 35px;
+}
+
+.reply_comment {
+  margin-left: 150px;
+
+  .ava {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+
+.new_reply {
+  display: flex;
+  margin-left: 110px;
+
+  .ava {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+
+  .textarea_outline {
+    width: 100%;
+    min-height: 50px;
+
+    textarea {
+      font-size: 13px;
+      color: $taupeGray;
+    }
+  }
+}
+
+.info_reply {
+  display: flex;
+  align-items: center;
+  margin-left: 110px;
+
+  .ava {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 10px;
+  }
+
+  .name {
+    color: $black;
+    font-size: 13px;
+    font-weight: 600;
+    margin-right: 20px;
+  }
+
+  .count_reply {
+    color: $taupeGray;
+    font-size: 13px;
+    margin-right: 20px;
+  }
+
+  .age {
+    color: $taupeGray;
+    font-size: 13px;
+  }
+}
+
+
+.load_more {
+  display: flex;
+  align-items: flex-end;
+  padding: 20px 0;
+
+  .descript {
+    color: #20c4f5;
+    font-weight: 600;
+    font-size: 18px;
+    padding-left: 100px;
+  }
+
+  .close {
+    display: flex;
+    color: #20c4f5;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0 auto;
+    border: none;
+    background-color: transparent;
+    position: absolute;
+    left: 50%;
+
+    &:before {
+      @include pseudo;
+      @include arrowBack('20c4f5');
+      background-position: 15px center;
+      position: absolute;
+      top: -12px;
+      left: 0;
+      width: 100%;
+      height: 15px;
+      transform: rotate(90deg);
+    }
+
+  }
+}
+
+
+///////////////////////////// COMMENTS V.2 /////////////////////////////
+.comments {
+  .head_comments {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #5F6986;
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      color: #fff;
+
+      .count {
+        font-weight: 300;
+        font-size: 25px;
+        color: #7481A6;
+      }
+    }
+    .comments_filter {
+      margin-bottom: 8px;
+    }
+  }
+
+
+}
+
+.wrap_textarea {
+  position: relative;
+  margin: 30px 0;
+
+  .add_comment {
+    width: 100%;
+    background-color: #031020;
+    border-radius: 5px;
+    padding: 23px 30px;
+    color: #fff;
+    font-size: 16px;
+    line-height: 150%;
+    border: none;
+    outline: none;
+    &::placeholder {
+      color: #5F6986;
+      opacity: 1;
+    }
+  }
+
+  .v-progress-linear {
+    position: absolute;
+    top: 0;
+  }
+
+  &.disable {
+    position: relative;
+
+    &:after {
+      @include pseudo;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+  }
+}
+
+.item_c {
+  display: flex;
+  margin-bottom: 32px;
+  position: relative;
+
+  .ava {
+    display: flex;
+    flex-shrink: 0;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-right: 10px;
+    overflow: hidden;
+    > img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .body_c {
+    background-color: #282C47;
+    border-radius: 5px;
+    padding: 10px 20px;
+    width: 100%;
+    position: relative;
+
+    .writer_name {
+      font-size: 15px;
+      color: #20A8F5;
+      line-height: 25px;
+    }
+
+    .comment_text {
+      font-size: 15px;
+      font-weight: 300;
+      color: #f6f6f6;
+      line-height: 25px;
+      white-space: pre-line;
+
+      textarea {
+        width: 100%;
+        font-size: 15px;
+        font-weight: 300;
+        color: #f6f6f6;
+        line-height: 25px;
+
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+
+    .more {
+      position: absolute;
+      top: 8px;
+      right: 15px;
+      @include icon(#dcdcdc, 26px, center, center);
+      > span {
+        display: flex;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+      }
+      &:hover {
+        > span {
+          background-color: rgba(#fff, 0.1);
+        }
+      }
+      > span {
+        &[aria-expanded="true"] {
+          background-color: rgba(#fff, .05);
+          @include icon(#ff0000, 26px, center, center);
+        }
+      }
+
+
+    }
+
+    .on_like {
+      position: absolute;
+      right: 15px;
+      bottom: -17.5px;
+      display: flex;
+      align-items: center;
+      background-color: #1C2239;
+      box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 35px;
+      min-width: 60px;
+      height: 35px;
+      padding: 0 20px;
+      @include icon(#fff, 26px, center, center);
+
+      .count_likes {
+        font-weight: 500;
+        font-size: 14px;
+        color: #f1f1f1;
+        padding-left: 9px;
+      }
+    }
+  }
+
+  .v-progress-circular {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    width: 100%;
+    height: 100%;
+  }
+}
